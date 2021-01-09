@@ -11,5 +11,5 @@ INSERT INTO favorites(user_id, posting_id) VALUES (6, 2);
 INSERT INTO favorites(user_id, posting_id) VALUES (7, 6);
 INSERT INTO favorites(user_id, posting_id) VALUES (10, 2);
 INSERT INTO favorites(user_id, posting_id) VALUES (10, 4);
-INSERT INTO favorites(user_id, posting_id) VALUES (10, 13);
-INSERT INTO favorites(user_id, posting_id) VALUES (10, 16);
+INSERT INTO favorites(user_id, posting_id) VALUES (10, 8);
+INSERT INTO favorites(user_id, posting_id) VALUES (10, 12);
