@@ -78,4 +78,24 @@ app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
 });
 
+app.post("/register", (req, res) => {
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.password;
+  registerUser(name, email, password);
+  res.redirect("/");
+})
+
+const registerUser = function(name, email, password) {
+  return db.query(`
+    INSERT INTO users (name, email, password)
+    VALUES($1, $2, $3)
+    RETURNING *;
+  `, [name, email, password])
+  .then(res => {
+    console.log("USER ADDED SUCCESSFULLY!!!!")
+    return res.rows[0] ? res.rows[0] : null;
+  })
+}
+
 
