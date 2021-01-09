@@ -1,4 +1,4 @@
--- Drop and recreate users table
+-- Drop and recreate all tables
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS postings CASCADE;
 DROP TABLE IF EXISTS favorites CASCADE;
@@ -13,9 +13,6 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   is_admin BOOLEAN DEFAULT FALSE
 );
-
--- Drop and recreate postings table
-
 
 CREATE TABLE postings (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -32,16 +29,12 @@ CREATE TABLE postings (
   date_created TIMESTAMP DEFAULT NOW()
 );
 
--- Drop and recreate favorites table
-
 
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   posting_id INTEGER REFERENCES postings(id) ON DELETE CASCADE
 );
-
--- Drop and recreate conversations table
 
 
 CREATE TABLE conversations (
@@ -50,8 +43,6 @@ CREATE TABLE conversations (
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   posting_id INTEGER REFERENCES postings(id) ON DELETE CASCADE
 );
-
--- Drop and recreate messages table
 
 
 CREATE TABLE messages (
@@ -62,3 +53,6 @@ CREATE TABLE messages (
   conversation_id INTEGER REFERENCES conversations(id) ON DELETE CASCADE,
   time_sent TIMESTAMP DEFAULT NOW()
 );
+
+
+
