@@ -2,13 +2,13 @@
 -- INSERT INTO users (name, email, password, is_admin) VALUES ('Bob', '@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
 
 --users
-INSERT INTO users (name, email, password, is_admin) VALUES ('Bob', 'bob@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('jim', 'jim@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('mike', 'mike@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('sally', 'sally@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('dave', 'dave@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('davesally', 'davesally@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
-INSERT INTO users (name, email, password, is_admin) VALUES ('sallydave', 'sallydave@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO users (name, email, password, is_admin) VALUES ('Bob', 'bob@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('jim', 'jim@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('mike', 'mike@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('sally', 'sally@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('dave', 'dave@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('davesally', 'davesally@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
+INSERT INTO users (name, email, password, is_admin) VALUES ('sallydave', 'sallydave@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', false);
 
 
 --admin
