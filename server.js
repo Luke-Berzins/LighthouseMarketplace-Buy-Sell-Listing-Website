@@ -1,6 +1,5 @@
 // load .env data into process.env
 require('dotenv').config();
-
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
@@ -9,6 +8,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const bcrypt     = require('bcrypt');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -82,7 +82,7 @@ app.listen(PORT, () => {
 app.post("/register", (request, response) => {
   let name = request.body.name;
   let email = request.body.email;
-  let password = request.body.password;
+  let password = bcrypt.hashSync(request.body.password, 12);
     return db.query(`
     INSERT INTO users (name, email, password)
     VALUES($1, $2, $3)
@@ -95,3 +95,25 @@ app.post("/register", (request, response) => {
   })
   .catch(e => res.send(e));
 })
+
+app.post("/login", (request, response) => {
+  let email = request.body.email;
+  let password = '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.';
+    return db.query(`
+    SELECT email, password
+    FROM users
+    WHERE email = $1 AND password = $2
+  `, [email, password])
+  .then(res => {
+    console.log("Reached here!!!")
+    console.log(res.rows);
+    response.redirect("/");
+    return res.rows[0] ? res.rows[0] : null;
+  })
+  .catch(e => {
+    console.log("Reached here")
+    response.send(e)
+  });
+})
+
+
