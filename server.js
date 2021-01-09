@@ -1,6 +1,5 @@
 // load .env data into process.env
 require('dotenv').config();
-
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
@@ -99,14 +98,15 @@ app.post("/register", (request, response) => {
 
 app.post("/login", (request, response) => {
   let email = request.body.email;
-  let password = bcrypt.hashSync(request.body.password, 12);
+  let password = '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.';
     return db.query(`
     SELECT email, password
     FROM users
     WHERE email = $1 AND password = $2
   `, [email, password])
   .then(res => {
-    console.log(res.rows[0]);
+    console.log("Reached here!!!")
+    console.log(res.rows);
     response.redirect("/");
     return res.rows[0] ? res.rows[0] : null;
   })
@@ -115,3 +115,5 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
+
+
