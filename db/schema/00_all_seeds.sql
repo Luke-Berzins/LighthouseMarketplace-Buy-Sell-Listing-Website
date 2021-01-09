@@ -1,6 +1,11 @@
 -- Drop and recreate users table
-
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS postings CASCADE;
+DROP TABLE IF EXISTS favorites CASCADE;
+DROP TABLE IF EXISTS conversations CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
+
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -11,7 +16,7 @@ CREATE TABLE users (
 
 -- Drop and recreate postings table
 
-DROP TABLE IF EXISTS postings CASCADE;
+
 CREATE TABLE postings (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -29,7 +34,7 @@ CREATE TABLE postings (
 
 -- Drop and recreate favorites table
 
-DROP TABLE IF EXISTS favorites CASCADE;
+
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -38,7 +43,7 @@ CREATE TABLE favorites (
 
 -- Drop and recreate conversations table
 
-DELETE TABLE IF EXISTS conversations CASCADE;
+
 CREATE TABLE conversations (
   id SERIAL PRIMARY KEY NOT NULL,
   seller_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -48,7 +53,7 @@ CREATE TABLE conversations (
 
 -- Drop and recreate messages table
 
-DROP TABLE IF EXISTS messages CASCADE;
+
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
