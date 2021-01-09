@@ -54,5 +54,5 @@ CREATE TABLE messages (
   time_sent TIMESTAMP DEFAULT NOW()
 );
 
-
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
 

@@ -13,9 +13,5 @@ VALUES
 (6, 'https://en.wikipedia.org/wiki/Stanley_Cup#/media/File:Stanley_Cup,_2015.jpg', 'Sports Trophy', 100, 'Bought off some guy named Dwayne Gretzky', '1232 Puck Lane', 'Thousand Oaks', 'California', '91319', 'USA'),
 (2, 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/95041485-1-x-1609872420.jpg?crop=1.00xw:1.00xh;0,0&resize=640:*', 'Cool Car', 25000, 'When you yell at car, it yells back!', '2525 Knight Rider Way', 'Calgary', 'Alberta', 'T1Y 7J9', 'Canada'),
 (5, 'https://media.gamestop.com/i/gamestop/11098394/Star-Wars-Episode-II-Attack-of-the-Clones-Kit-Fisto-The-Black-Series-Force-FX-Lightsaber?$pdp$', 'Laser Sword', 250, 'Best bread knife you will ever own!', '66 Jedi Way', 'Toronto', 'Ontario', 'K0C 1P0', 'Canada'),
-<<<<<<< HEAD
-(6, 'https://inst-1.cdn.shockers.de/hs_cdn/out/pictures/master/product/1/gremlins-gizmo-puppe-mit-kunstfell-gremlins-merchandise-gizmo-fanartikel-gremlins-handpuppe-36356-01_1.jpg', 'Puppy', 300, 'Do not feed it after midnight...', '654 Gizmo Ave', 'Montreal', 'Quebec', 'H1A 1A1', 'Canada')
-=======
 (6, 'https://inst-1.cdn.shockers.de/hs_cdn/out/pictures/master/product/1/gremlins-gizmo-puppe-mit-kunstfell-gremlins-merchandise-gizmo-fanartikel-gremlins-handpuppe-36356-01_1.jpg', 'Puppy', 300, 'Do not feed it after midnight...', '654 Gizmo Ave', 'Montreal', 'Quebec', 'H1A 1A1', 'Canada');
->>>>>>> 037394ddf6d03b120077f78a80260f8b265464db
 
