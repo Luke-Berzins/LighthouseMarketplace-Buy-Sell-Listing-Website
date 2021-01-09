@@ -12,31 +12,42 @@
   </head>
 
   <body>
+
+    <nav class="navbar-user-not-logged-in">
+      <div class="logo-and-name">
+        <img class="lhl-marketplace-logo" src="https://raw.githubusercontent.com/Thinkful/bootcamp-finder/master/bootcamps/lighthouse-labs/logo.png" alt="Lighthouse">
+        <span>LLH MarketPlace</span>
+      </div>
+      <div class="nav-bar-buttons">
+        <button><a href="/register" style="text-decoration: none;">Register</a></button>
+        <button><a href="/login" style="text-decoration: none;">Login</a></button>
+      </div>
+    </nav>
+
+
+
     <h1>postings!</h1>
 
-    <% console.log(postings)
-    let counter = 0;
-    for(let posting of postings) {
-      counter++; %>
-      <tr>
-        <h3>Posting <%= counter %></h1>
-        <td>posting id <%= posting['id'] %></td>
-        <td> user id <%= posting['user_id'] %></td>
-        <td>image <%= posting['image_photo_url'] %></td>
-        <td>title <%= posting['title'] %></td>
-        <td>price <%= posting['price'] %></td>
-        <td> description <%= posting['description'] %></td>
-        <td>street <%= posting['street'] %></td>
-        <td>city <%= posting['city'] %></td>
-        <td>province <%= posting['province'] %></td>
-        <td> post_code <%= posting['post_code'] %></td>
-        <td>country <%= posting['country'] %></td>
-        <td>date_created <%= posting['date_created'] %></td>
-        <br>
-        <br>
-      </tr>
+
+
+    <div id="postings_container">
+
+
+    <% for(let posting of postings) {%>
+      <div class="posting_display"><img src="<%= posting['image_photo_url'] %>" width="200" height="200">
+        <div class="posting_body">
+        <div class="posting_header">
+        <h1><%= posting['title'] %></h1>
+        <h2>$<%= posting['price'] %></h2>
+        </div>
+        <p> description <%= posting['description'] %></p>
+        <p> user id <%= posting['user_id'] %></p>
+        <div >
+        <p><%= posting['street'] %> <%= posting['city'] %> <%= posting['province'] %> <%= posting['post_code'] %> country <%= posting['country'] %></p>
+        <p>Posted <%= posting['date_created'] %></p>
+        </div>
+        </div>
+    </div>
     <% } %>
-
-
   </body>
 </html>
