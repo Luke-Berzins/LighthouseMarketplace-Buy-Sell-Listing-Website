@@ -52,3 +52,25 @@ $(() => {
     }
   });;
 });
+
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/conversations"
+  }).done((conversations) => {
+    for(conversation of conversations) {
+      $("<div>").text(conversation.name).appendTo($("body"));
+    }
+  });;
+});
+
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/messages"
+  }).done((messages) => {
+    for(message of messages) {
+      $("<div>").text(message.name).appendTo($("body"));
+    }
+  });;
+});
