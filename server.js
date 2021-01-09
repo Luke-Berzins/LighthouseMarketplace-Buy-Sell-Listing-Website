@@ -73,8 +73,11 @@ app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
 });
 
+<<<<<<< HEAD
 // Push data to database
 
+=======
+>>>>>>> b6ce8d6d22c068a51b5b8422557ec7583c481710
 app.post("/register", (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
