@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const bcrypt     = require('bcrypt');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -82,7 +83,7 @@ app.listen(PORT, () => {
 app.post("/register", (request, response) => {
   let name = request.body.name;
   let email = request.body.email;
-  let password = request.body.password;
+  let password = bcrypt.hashSync(request.body.password, 12);
     return db.query(`
     INSERT INTO users (name, email, password)
     VALUES($1, $2, $3)
@@ -94,4 +95,23 @@ app.post("/register", (request, response) => {
     return res.rows[0] ? res.rows[0] : null;
   })
   .catch(e => res.send(e));
+})
+
+app.post("/login", (request, response) => {
+  let email = request.body.email;
+  let password = bcrypt.hashSync(request.body.password, 12);
+    return db.query(`
+    SELECT email, password
+    FROM users
+    WHERE email = $1 AND password = $2
+  `, [email, password])
+  .then(res => {
+    console.log(res.rows[0]);
+    response.redirect("/");
+    return res.rows[0] ? res.rows[0] : null;
+  })
+  .catch(e => {
+    console.log("Reached here")
+    response.send(e)
+  });
 })
