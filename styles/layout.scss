@@ -3,7 +3,27 @@
 body {
   background-color: #EEE;
 
+  nav {
+    background-color: #5A92C6;
+  }
   h1 {
     color: #244751;
   }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lhl-marketplace-logo {
+  width: 30px;
+  height: auto;
+  padding-right: 0.5rem;
+}
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
 }
