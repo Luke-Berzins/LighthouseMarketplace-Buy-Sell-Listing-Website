@@ -47,6 +47,8 @@ app.use("/api/postings", postingsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
 app.use("/api/conversations", conversationsRoutes(db));
 app.use("/api/messages", messagesRoutes(db));
+app.use("/conversations", conversationsRoutes(db));
+app.use("/favorites", favoritesRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -57,6 +59,11 @@ app.use("/api/messages", messagesRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/conversations", (req, res) => {
+  res.render("conversations");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
