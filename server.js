@@ -51,7 +51,15 @@ app.use("/conversations", conversationsRoutes(db));
 app.use("/favorites", favoritesRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
+// Creates login page
+app.get("/login", (req, res) => {
+  res.render("login");
+});
 
+// Creates registration page
+app.get("/register", (req, res) => {
+  res.render("register");
+});
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -63,3 +71,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
 });
+
+
