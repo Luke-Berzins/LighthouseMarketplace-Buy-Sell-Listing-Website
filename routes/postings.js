@@ -12,8 +12,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM postings;`)
       .then(data => {
-        const postings = data.rows;
-        res.json({ postings });
+        const templateVars = { postings: data.rows};
+        res.render('postings', templateVars)
       })
       .catch(err => {
         res
@@ -23,3 +23,6 @@ module.exports = (db) => {
   });
   return router;
 };
+
+
+

@@ -47,6 +47,7 @@ app.use("/api/postings", postingsRoutes(db));
 app.use("/api/conversations", conversationsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
 app.use("/api/messages", messagesRoutes(db));
+app.use("/postings", postingsRoutes(db));
 app.use("/conversations", conversationsRoutes(db));
 app.use("/favorites", favoritesRoutes(db));
 

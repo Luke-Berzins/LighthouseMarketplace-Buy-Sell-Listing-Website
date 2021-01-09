@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <h1>postings!</h1>
+
+    <% console.log(postings)
+    let counter = 0;
+    for(let posting of postings) {
+      counter++; %>
+      <tr>
+        <h3>Posting <%= counter %></h1>
+        <td>posting id <%= posting['id'] %></td>
+        <td> user id <%= posting['user_id'] %></td>
+        <td>image <%= posting['image_photo_url'] %></td>
+        <td>title <%= posting['title'] %></td>
+        <td>price <%= posting['price'] %></td>
+        <td> description <%= posting['description'] %></td>
+        <td>street <%= posting['street'] %></td>
+        <td>city <%= posting['city'] %></td>
+        <td>province <%= posting['province'] %></td>
+        <td> post_code <%= posting['post_code'] %></td>
+        <td>country <%= posting['country'] %></td>
+        <td>date_created <%= posting['date_created'] %></td>
+        <br>
+        <br>
+      </tr>
+    <% } %>
+
+
+  </body>
+</html>
