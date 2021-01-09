@@ -38,6 +38,7 @@ const postingsRoutes = require("./routes/postings");
 const conversationsRoutes = require("./routes/conversations");
 const favoritesRoutes = require("./routes/favorites");
 const messagesRoutes = require("./routes/messages");
+const poolFactory = require('pg/lib/pool-factory');
 
 
 // Mount all resource routes
@@ -88,4 +89,7 @@ app.post("/register", (req, res) => {
   })
   .catch(e => res.send(e));
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0daa8c5d6b713a3671a9f95ed05f1aaf117c77c1
