@@ -53,13 +53,16 @@ $(() => {
   });;
 });
 
+
+// Webpages
+
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/conversations"
-  }).done((conversations) => {
-    for(conversation of conversations) {
-      $("<div>").text(conversation.name).appendTo($("body"));
+    url: "/favorites"
+  }).done((favorites) => {
+    for(fav of favorites) {
+      $("<div>").text(fav.name).appendTo($("body"));
     }
   });;
 });
@@ -67,10 +70,10 @@ $(() => {
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/messages"
-  }).done((messages) => {
-    for(message of messages) {
-      $("<div>").text(message.name).appendTo($("body"));
+    url: "/conversations"
+  }).done((conversations) => {
+    for(conversation of conversations) {
+      $("<div>").text(conversation.name).appendTo($("body"));
     }
   });;
 });
