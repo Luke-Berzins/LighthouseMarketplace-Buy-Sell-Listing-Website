@@ -52,3 +52,28 @@ $(() => {
     }
   });;
 });
+
+
+// Webpages
+
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/favorites"
+  }).done((favorites) => {
+    for(fav of favorites) {
+      $("<div>").text(fav.name).appendTo($("body"));
+    }
+  });;
+});
+
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/conversations"
+  }).done((conversations) => {
+    for(conversation of conversations) {
+      $("<div>").text(conversation.name).appendTo($("body"));
+    }
+  });;
+});
