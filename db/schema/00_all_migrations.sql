@@ -55,4 +55,5 @@ CREATE TABLE messages (
 );
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
+ALTER USER labber WITH Superuser;
 
