@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar-user-not-logged-in">
+      <div class="logo-and-name">
+        <img class="lhl-marketplace-logo" src="https://raw.githubusercontent.com/Thinkful/bootcamp-finder/master/bootcamps/lighthouse-labs/logo.png" alt="Lighthouse">
+        <span>LLH MarketPlace</span>
+      </div>
+      <div class="nav-bar-buttons">
+        <button><a href="/register" style="text-decoration: none;">Register</a></button>
+        <button><a href="/login" style="text-decoration: none;">Login</a></button>
+      </div>
+    </nav>
+
+    <h1>Conversations!</h1>
+
+    <% console.log(conversations)
+    let counter = 0;
+    for(let conversation of conversations) {
+      counter++; %>
+      <tr>
+        <h3>Convo <%= counter %></h1>
+        <td>convo id <%= conversation['id'] %></td>
+        <td> seller id <%= conversation['seller_id'] %></td>
+        <td>buyer id <%= conversation['buyer_id'] %></td>
+        <td>posting id <%= conversation['posting_id'] %></td>
+        <br>
+        <br>
+      </tr>
+    <% } %>
+
+
+  </body>
+</html>

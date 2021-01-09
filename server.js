@@ -48,6 +48,7 @@ app.use("/api/postings", postingsRoutes(db));
 app.use("/api/conversations", conversationsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
 app.use("/api/messages", messagesRoutes(db));
+app.use("/postings", postingsRoutes(db));
 app.use("/conversations", conversationsRoutes(db));
 app.use("/favorites", favoritesRoutes(db));
 
@@ -68,6 +69,11 @@ app.get("/register", (req, res) => {
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/conversations", (req, res) => {
+  res.render("conversations");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
