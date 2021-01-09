@@ -12,8 +12,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM conversations;`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const templateVars = { conversations: data.rows};
+        res.render('conversations', templateVars)
       })
       .catch(err => {
         res
