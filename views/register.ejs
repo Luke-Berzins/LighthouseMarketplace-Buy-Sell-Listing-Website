@@ -4,15 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
     <title>Registration</title>
     </head>
         <body>
-          <nav class="navbar-user-not-logged-in">
-            <div class="logo-and-name">
-              <img class="lhl-marketplace-logo" src="https://raw.githubusercontent.com/Thinkful/bootcamp-finder/master/bootcamps/lighthouse-labs/logo.png" alt="Lighthouse">
-              <span>LLH MarketPlace</span>
-            </div>
-          </nav>
+
+          <%- include('partials/_navbar') %>
+
         <h2>Register</h2>
         <form method="POST" action="/register">
         <p>Name:<input type="name" placeholder="name" name="name" required/></p>
