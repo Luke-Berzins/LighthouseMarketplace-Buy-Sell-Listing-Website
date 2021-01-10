@@ -98,17 +98,26 @@ app.post("/register", (request, response) => {
 
 app.post("/login", (request, response) => {
   let email = request.body.email;
-  let password = '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.';
+  let password = request.body.password;
     return db.query(`
     SELECT email, password
     FROM users
-    WHERE email = $1 AND password = $2
-  `, [email, password])
+    WHERE email = $1
+  `, [email])
   .then(res => {
     console.log("Reached here!!!")
-    console.log(res.rows);
-    response.redirect("/");
-    return res.rows[0] ? res.rows[0] : null;
+    console.log(res.rows[0]);
+    if (res.rows[0]) {
+      if (bcrypt.compareSync(password, res.rows[0].password)) {
+        console.log("user match in database");
+        response.redirect("/");
+      }
+      else {
+        console.log("user not matched in database");
+        response.redirect("/login");
+      }
+    }
+    // return res.rows[0] ? res.rows[0] : null;
   })
   .catch(e => {
     console.log("Reached here")
