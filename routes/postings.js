@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+const users = require('./users');
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -29,6 +30,7 @@ module.exports = (db) => {
   });
   return router;
 };
+
 
 
 

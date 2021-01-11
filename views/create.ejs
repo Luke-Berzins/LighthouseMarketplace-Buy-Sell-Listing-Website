@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <%- include('partials/_head') %>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/listings.css" type="text/css" />
+    <body>
+      <%- include('partials/_navbar') %>
+
+    <h2>Create New Listing</h2>
+    <h3>Item Image:</h3>
+    <p>Photo:<input type="photo" placeholder="Image-URL" name="image" required/></p>
+      <h3>Item Info:</h3>
+    <p>Title:<input type="title" placeholder="Title" name="title" required/></p>
+    <p>Price:<input type="price" placeholder="Price" name="price" required/></p>
+    <p>Description:<input type="description" placeholder="Description" name="description" required/></p>
+    <h3>Address:</h3>
+    <p>Street:<input type="street" placeholder="Street" name="street" required/></p>
+    <p>City:<input type="city" placeholder="City" name="city" required/></p>
+    <p>Province:<input type="province" placeholder="Province" name="province" required/></p>
+    <p>Postal Code:<input type="postal_code" placeholder="Postal Code" name="postal_code" required/></p>
+    <p>Country:<input type="country" placeholder="Country" name="country" required/></p>
+    <button type="submit" class="btn btn-primary btn-lg">List Item!</button>
+    </form>
+    </body>
+</html>
