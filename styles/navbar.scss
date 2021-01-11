@@ -2,12 +2,18 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
 .lhl-marketplace-logo {
   width: 30px;
   height: auto;
   padding-right: 0.5rem;
+}
+
+.company-name {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: x-large;
 }
 
 .logo-and-name {
