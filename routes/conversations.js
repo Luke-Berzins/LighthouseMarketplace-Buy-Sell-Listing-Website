@@ -10,9 +10,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM conversations;`)
+    db.query(`SELECT *
+    FROM messages
+    ORDER BY conversation_id, time_sent;
+    `)
       .then(data => {
-        const templateVars = { conversations: data.rows};
+        const templateVars = { messages: data.rows};
         res.render('conversations', templateVars)
       })
       .catch(err => {

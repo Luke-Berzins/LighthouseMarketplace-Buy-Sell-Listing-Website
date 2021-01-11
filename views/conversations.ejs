@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/conversations.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -18,19 +19,29 @@
 
     <h1>Conversations!</h1>
 
-    <% let counter = 0;
-    for(let conversation of conversations) {
-      counter++; %>
-      <tr>
-        <h3>Convo <%= counter %></h1>
-        <td>convo id <%= conversation['id'] %></td>
-        <td> seller id <%= conversation['seller_id'] %></td>
-        <td>buyer id <%= conversation['buyer_id'] %></td>
-        <td>posting id <%= conversation['posting_id'] %></td>
-        <br>
-        <br>
-      </tr>
-    <% } %>
+    <div class="conversations-container">
+      <% let currentConv = 0;
+      for(let message of messages) { %>
+        <tr>
+          <h3><% if (message['conversation_id'] !== currentConv) {  %>
+            <% currentConv++; %>
+            Convo <%= message['conversation_id'] %>
+            <% } %></h1>
+          <td><%= message['content'] %></td>
+          <span>
+            <% let date = JSON.stringify(message['time_sent']); %>
+            <%= date.slice(1, 11) %>
+          </span>
+        </tr>
+      <% } %>
+
+    </div>
+
+
+  </body>
+
+
+
 
 
   </body>
