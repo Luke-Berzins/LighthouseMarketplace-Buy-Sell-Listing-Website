@@ -91,11 +91,21 @@ app.get("/register", (req, res) => {
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {
+    user: req.session["userName"]
+  };
+  res.render("index", templateVars);
 });
 
 app.get("/conversations", (req, res) => {
   res.render("conversations");
+});
+
+app.get("/create", (req, res) => {
+  const templateVars = {
+    user: req.session["userName"]
+  };
+  res.render("create", templateVars);
 });
 
 app.listen(PORT, () => {
@@ -156,3 +166,5 @@ app.post("/logout", (req, res) => {
   req.session = null;
   res.redirect("/");
 });
+
+
