@@ -15,9 +15,7 @@ module.exports = (db) => {
     ORDER BY conversation_id, time_sent;
     `)
       .then(data => {
-        console.log(req.session)
         const templateVars = { user: req.session, messages: data.rows};
-        console.log(templateVars)
         res.render('conversations', templateVars)
       })
       .catch(err => {
