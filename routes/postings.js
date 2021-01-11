@@ -15,6 +15,7 @@ module.exports = (db) => {
       JOIN users ON postings.user_id = users.id;
     `)
       .then(data => {
+        console.log("test", data.rows)
         const templateVars = { postings: data.rows };
         res.render('postings', templateVars)
       })
