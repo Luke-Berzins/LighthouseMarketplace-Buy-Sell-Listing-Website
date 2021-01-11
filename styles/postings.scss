@@ -16,6 +16,20 @@
 //   justify-content: space-between;
 // }
 
+.search-bar-container {
+  display: flex;
+  width: 90%;
+  gap: 1rem;
+  margin: 1rem auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-bar {
+  margin-right: auto;
+  flex-grow: 1;
+}
+
 .posting-container {
   display: flex;
   // justify-content: space-between;
@@ -23,9 +37,10 @@
   width: 90%;
   height: 40%;
   margin: auto;
-  border: thin solid black;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  border: thin solid black;
+
 }
 
 .posting-image {

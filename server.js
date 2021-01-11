@@ -9,6 +9,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const bcrypt     = require('bcrypt');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -109,7 +110,7 @@ app.post("/login", (request, response) => {
     if (res.rows[0]) {
       if (bcrypt.compareSync(password, res.rows[0].password)) {
         console.log("user match in database");
-        response.redirect("/");
+        response.redirect("/postings");
       }
       else {
         console.log("user not matched in database");
@@ -123,4 +124,9 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
+
+// .then(data => {
+//   const templateVars = { postings: data.rows};
+//   res.render('postings', templateVars)
+// })
 
