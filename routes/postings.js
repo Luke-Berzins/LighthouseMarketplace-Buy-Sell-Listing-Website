@@ -17,10 +17,9 @@ module.exports = (db) => {
     `)
       .then(data => {
         const templateVars = {
-          user: req.session["userID"],
+          user: req.session["userName"],
           postings: data.rows
         };
-
         res.render('postings', templateVars)
       })
       .catch(err => {
