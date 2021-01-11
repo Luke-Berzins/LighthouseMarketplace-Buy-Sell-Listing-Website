@@ -136,9 +136,10 @@ app.post("/login", (request, response) => {
     if (res.rows[0]) {
       if (bcrypt.compareSync(password, res.rows[0].password)) {
         console.log("user match in database");
-        // userID = res.rows[0].id;
+        let userID = res.rows[0].id;
         let userName = res.rows[0].name;
         request.session["userName"] = userName;
+        request.session["userID"] = userID;
         response.redirect("/postings");
       }
       else {

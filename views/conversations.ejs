@@ -19,6 +19,8 @@
 
     <div class="conversations-container">
       <% let currentConv = 0;
+      let sender = undefined;
+      let reciever = undefined;
       for(let message of messages) { %>
         <tr>
           <h3><% if (message['conversation_id'] !== currentConv) {  %>
