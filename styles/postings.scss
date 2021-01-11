@@ -1,0 +1,58 @@
+// #postings_container {
+//   display: flex;
+//   flex-direction: column;
+//   margin: 4rem;
+//   padding: 2rem;
+// }
+
+// .posting_display {
+//   display: flex;
+//   border-style: solid;
+//   padding: 1rem;
+// }
+
+// .posting_header {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.posting-container {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 40%;
+  margin: auto;
+  border: thin solid black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.posting-image {
+  height: 200px;
+  width: auto;
+  padding: 0.4rem;
+}
+
+.posting-title-price-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.posting-right-hand-side-parent {
+  margin-left: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.posting-address-seller {
+  display: flex;
+  flex-direction: column;
+}
+
+.posting-msg-fav-timestamp {
+  display: flex;
+}
+

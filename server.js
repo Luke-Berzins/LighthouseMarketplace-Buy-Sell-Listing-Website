@@ -74,7 +74,6 @@ app.get("/conversations", (req, res) => {
   res.render("conversations");
 });
 
-
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
 });
@@ -124,5 +123,4 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
-
 
