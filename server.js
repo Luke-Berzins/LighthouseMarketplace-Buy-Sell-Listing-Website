@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const bcrypt     = require('bcrypt');
 const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
@@ -42,16 +41,20 @@ app.use(cookieSession({
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
+const indexRoutes = require("./routes/index");
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
+const registerRoutes = require("./routes/register");
 const postingsRoutes = require("./routes/postings");
 const conversationsRoutes = require("./routes/conversations");
 const favoritesRoutes = require("./routes/favorites");
 const messagesRoutes = require("./routes/messages");
 const poolFactory = require('pg/lib/pool-factory');
 
-
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
+
 app.use("/api/users", usersRoutes(db));
+app.use("/", indexRoutes(db));
 app.use("/api/postings", postingsRoutes(db));
 app.use("/api/conversations", conversationsRoutes(db));
 app.use("/api/favorites", favoritesRoutes(db));
@@ -59,47 +62,9 @@ app.use("/api/messages", messagesRoutes(db));
 app.use("/postings", postingsRoutes(db));
 app.use("/conversations", conversationsRoutes(db));
 app.use("/favorites", favoritesRoutes(db));
-
-// Note: mount other resources here, using the same pattern above
-// Creates login page
-app.get("/login", (req, res) => {
-  if (req.session.isNew) {
-    const templateVars = {
-      user: req.session["userName"]
-    };
-    res.render("login", templateVars);
-  } else {
-    res.redirect("/postings")
-  }
-
-});
-
-// Creates registration page
-app.get("/register", (req, res) => {
-  if (req.session.isNew) {
-    const templateVars = {
-      user: req.session["userName"]
-    };
-    res.render("register", templateVars);
-  } else {
-    res.redirect("/postings")
-  }
-
-});
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  const templateVars = {
-    user: req.session["userName"]
-  };
-  res.render("index", templateVars);
-});
-
-app.get("/conversations", (req, res) => {
-  res.render("conversations");
-});
+app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
+app.use("/register", registerRoutes(db));
 
 app.get("/create", (req, res) => {
   const templateVars = {
@@ -111,60 +76,3 @@ app.get("/create", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
 });
-
-app.post("/register", (request, response) => {
-  let name = request.body.name;
-  let email = request.body.email;
-  let password = bcrypt.hashSync(request.body.password, 12);
-    return db.query(`
-    INSERT INTO users (name, email, password)
-    VALUES($1, $2, $3)
-    RETURNING *;
-  `, [name, email, password])
-  .then(res => {
-    userID = res.rows[0].id;
-    console.log("THE res.rows[0] is >>", res.rows[0]);
-    request.session["userName"] = userName;
-    response.redirect("/");
-    return res.rows[0] ? res.rows[0] : null;
-  })
-  .catch(e => response.send(e));
-})
-
-app.post("/login", (request, response) => {
-  let email = request.body.email;
-  let password = request.body.password;
-    return db.query(`
-    SELECT id, name, email, password
-    FROM users
-    WHERE email = $1
-  `, [email])
-  .then(res => {
-    if (res.rows[0]) {
-      if (bcrypt.compareSync(password, res.rows[0].password)) {
-        console.log("user match in database");
-        // userID = res.rows[0].id;
-        let userName = res.rows[0].name;
-        request.session["userName"] = userName;
-        response.redirect("/postings");
-      }
-      else {
-        response.redirect("/login");
-      }
-    } else {
-      response.redirect("/login");
-    }
-    // return res.rows[0] ? res.rows[0] : null;
-  })
-  .catch(e => {
-    console.log("Reached here")
-    response.send(e)
-  });
-})
-
-app.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect("/");
-});
-
-

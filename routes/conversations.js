@@ -15,7 +15,8 @@ module.exports = (db) => {
     ORDER BY conversation_id, time_sent;
     `)
       .then(data => {
-        const templateVars = { user: req.session, messages: data.rows};
+        console.log("route convo also reached")
+        const templateVars = { user: req.session["userName"], messages: data.rows};
         res.render('conversations', templateVars)
       })
       .catch(err => {
