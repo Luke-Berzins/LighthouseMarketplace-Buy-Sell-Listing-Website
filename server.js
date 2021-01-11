@@ -71,7 +71,10 @@ app.get("/login", (req, res) => {
 
 // Creates registration page
 app.get("/register", (req, res) => {
-  res.render("register");
+  const templateVars = {
+    user: req.session["userID"]
+  };
+  res.render("register", templateVars);
 });
 
 // Home page
