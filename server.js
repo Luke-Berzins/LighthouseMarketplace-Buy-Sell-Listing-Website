@@ -124,9 +124,3 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
-
-// .then(data => {
-//   const templateVars = { postings: data.rows};
-//   res.render('postings', templateVars)
-// })
-
