@@ -18,8 +18,6 @@ module.exports = (db) => {
     JOIN conversations on conversations.id = conversation_id
     JOIN users on sender_id = users.id
     WHERE users.name = '${user}'
-
-
     ORDER BY conversation_id, time_sent;
     `)
       .then(data => {
