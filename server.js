@@ -31,6 +31,13 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1'],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -90,10 +97,12 @@ app.post("/register", (request, response) => {
   `, [name, email, password])
   .then(res => {
     console.log("USER ADDED SUCCESSFULLY!!!!")
+    userID = res.rows[0].id;
+    request.session["userID"] = userID;
     response.redirect("/");
     return res.rows[0] ? res.rows[0] : null;
   })
-  .catch(e => res.send(e));
+  .catch(e => response.send(e));
 })
 
 app.post("/login", (request, response) => {
@@ -110,7 +119,9 @@ app.post("/login", (request, response) => {
     if (res.rows[0]) {
       if (bcrypt.compareSync(password, res.rows[0].password)) {
         console.log("user match in database");
-        response.redirect("/postings");
+        userID = res.rows[0].id;
+        request.session["userID"] = userID;
+        response.redirect("/");
       }
       else {
         console.log("user not matched in database");
