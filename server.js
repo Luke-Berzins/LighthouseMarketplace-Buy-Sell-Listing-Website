@@ -63,12 +63,18 @@ app.use("/favorites", favoritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
 // Creates login page
 app.get("/login", (req, res) => {
-  res.render("login");
+  const templateVars = {
+    user: req.session["userID"]
+  };
+  res.render("login", templateVars);
 });
 
 // Creates registration page
 app.get("/register", (req, res) => {
-  res.render("register");
+  const templateVars = {
+    user: req.session["userID"]
+  };
+  res.render("register", templateVars);
 });
 
 // Home page
