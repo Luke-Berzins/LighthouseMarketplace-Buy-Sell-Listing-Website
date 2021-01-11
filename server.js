@@ -63,18 +63,28 @@ app.use("/favorites", favoritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
 // Creates login page
 app.get("/login", (req, res) => {
-  const templateVars = {
-    user: req.session["userID"]
-  };
-  res.render("login", templateVars);
+  if (req.session.isNew) {
+    const templateVars = {
+      user: req.session["userID"]
+    };
+    res.render("login", templateVars);
+  } else {
+    res.redirect("/postings")
+  }
+
 });
 
 // Creates registration page
 app.get("/register", (req, res) => {
-  const templateVars = {
-    user: req.session["userID"]
-  };
-  res.render("register", templateVars);
+  if (req.session.isNew) {
+    const templateVars = {
+      user: req.session["userID"]
+    };
+    res.render("register", templateVars);
+  } else {
+    res.redirect("/postings")
+  }
+
 });
 
 // Home page
@@ -104,6 +114,7 @@ app.post("/register", (request, response) => {
   .then(res => {
     console.log("USER ADDED SUCCESSFULLY!!!!")
     userID = res.rows[0].id;
+    console.log("THE res.rows[0] is >>", res.rows[0]);
     request.session["userID"] = userID;
     response.redirect("/");
     return res.rows[0] ? res.rows[0] : null;
@@ -115,7 +126,7 @@ app.post("/login", (request, response) => {
   let email = request.body.email;
   let password = request.body.password;
     return db.query(`
-    SELECT email, password
+    SELECT id, email, password
     FROM users
     WHERE email = $1
   `, [email])
@@ -133,6 +144,8 @@ app.post("/login", (request, response) => {
         console.log("user not matched in database");
         response.redirect("/login");
       }
+    } else {
+      response.redirect("/login");
     }
     // return res.rows[0] ? res.rows[0] : null;
   })
@@ -141,3 +154,8 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
+
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
