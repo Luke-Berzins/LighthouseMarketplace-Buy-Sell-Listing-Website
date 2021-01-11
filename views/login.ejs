@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang ="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <title>Login</title>
-</head>
+<%- include('partials/_head') %>
 <body>
   <%- include('partials/_navbar') %>
-<h2>Login</h2>
+  <h2>Login</h2>
     <form method="POST" action="/login">
         <p>Email Address:<input type="email" placeholder="Enter email" name="email" required/></p>
         <p>Password:<input type="password" placeholder="Password" name="password" required/></p>

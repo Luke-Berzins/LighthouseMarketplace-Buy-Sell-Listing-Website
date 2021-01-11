@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/postings.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=B612&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
-
+  <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
-    <!-- <h1>postings!</h1>
-    <div id="postings_container">
-      <% for(let posting of postings) {%>
-      <div class="posting_display">
-        <img src="<%= posting['image_photo_url'] %>" width="200" height="200">
-        <div class="posting_body">
-          <div class="posting_header">
-            <h1><%= posting['title'] %></h1>
-            <h2>$<%= posting['price'] %></h2>
-          </div>
-          <p> description <%= posting['description'] %></p>
-          <p> user id <%= posting['user_id'] %></p>
-          <div>
-            <p><%= posting['street'] %> <%= posting['city'] %> <%= posting['province'] %> <%= posting['post_code'] %> <%= posting['country'] %></p>
-            <p>Posted <%= posting['date_created'] %></p>
-          </div>
-        </div>
-      </div>
-      <% } %>
-    </div> -->
+
+    <div class="search-bar-container">
+      <input class="search-bar" type="text" placeholder="Search...">
+      <button class="fas fa-search" type="submit"></button>
+      <i class="fas fa-filter"></i>
+      <i class="fas fa-sort"></i>
+    </div>
 
     <% for(let posting of postings) {%>
     <div class="posting-container">

@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
-
+  <%- include('partials/_head') %>
   <body>
-
     <%- include('partials/_navbar') %>
-
     <h1>Conversations!</h1>
-
     <% let counter = 0;
     for(let conversation of conversations) {
       counter++; %>
@@ -31,7 +17,5 @@
         <br>
       </tr>
     <% } %>
-
-
   </body>
 </html>

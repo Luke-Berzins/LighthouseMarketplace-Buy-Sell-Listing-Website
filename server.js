@@ -11,7 +11,6 @@ const morgan     = require('morgan');
 const bcrypt     = require('bcrypt');
 const cookieSession = require('cookie-session');
 
-
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -139,4 +138,3 @@ app.post("/login", (request, response) => {
     response.send(e)
   });
 })
-
