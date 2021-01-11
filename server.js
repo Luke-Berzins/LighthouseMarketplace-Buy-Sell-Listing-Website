@@ -65,7 +65,7 @@ app.use("/favorites", favoritesRoutes(db));
 app.get("/login", (req, res) => {
   if (req.session.isNew) {
     const templateVars = {
-      user: req.session["userID"]
+      user: req.session["userName"]
     };
     res.render("login", templateVars);
   } else {
@@ -78,7 +78,7 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
   if (req.session.isNew) {
     const templateVars = {
-      user: req.session["userID"]
+      user: req.session["userName"]
     };
     res.render("register", templateVars);
   } else {
@@ -115,7 +115,7 @@ app.post("/register", (request, response) => {
     console.log("USER ADDED SUCCESSFULLY!!!!")
     userID = res.rows[0].id;
     console.log("THE res.rows[0] is >>", res.rows[0]);
-    request.session["userID"] = userID;
+    request.session["userName"] = userName;
     response.redirect("/");
     return res.rows[0] ? res.rows[0] : null;
   })
@@ -126,7 +126,7 @@ app.post("/login", (request, response) => {
   let email = request.body.email;
   let password = request.body.password;
     return db.query(`
-    SELECT id, email, password
+    SELECT id, name, email, password
     FROM users
     WHERE email = $1
   `, [email])
@@ -136,9 +136,10 @@ app.post("/login", (request, response) => {
     if (res.rows[0]) {
       if (bcrypt.compareSync(password, res.rows[0].password)) {
         console.log("user match in database");
-        userID = res.rows[0].id;
-        request.session["userID"] = userID;
-        response.redirect("/");
+        // userID = res.rows[0].id;
+        let userName = res.rows[0].name;
+        request.session["userName"] = userName;
+        response.redirect("/postings");
       }
       else {
         console.log("user not matched in database");

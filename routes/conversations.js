@@ -16,7 +16,6 @@ module.exports = (db) => {
     `)
       .then(data => {
         const templateVars = { user: req.session, messages: data.rows};
-        console.log(templateVars)
         res.render('conversations', templateVars)
       })
       .catch(err => {

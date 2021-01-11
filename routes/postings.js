@@ -15,8 +15,15 @@ module.exports = (db) => {
       JOIN users ON postings.user_id = users.id;
     `)
       .then(data => {
+<<<<<<< HEAD
         console.log("test", data.rows)
         const templateVars = { postings: data.rows };
+=======
+        const templateVars = {
+          user: req.session["userName"],
+          postings: data.rows
+        };
+>>>>>>> a408a10c0c9dc8c170a3bf5322e387b305432f22
         res.render('postings', templateVars)
       })
       .catch(err => {
