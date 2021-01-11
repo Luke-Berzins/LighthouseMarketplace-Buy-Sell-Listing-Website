@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+const users = require('./users');
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -15,7 +16,11 @@ module.exports = (db) => {
       JOIN users ON postings.user_id = users.id;
     `)
       .then(data => {
-        const templateVars = { postings: data.rows };
+        const templateVars = {
+          user: req.session["userID"],
+          postings: data.rows
+        };
+
         res.render('postings', templateVars)
       })
       .catch(err => {
@@ -26,6 +31,7 @@ module.exports = (db) => {
   });
   return router;
 };
+
 
 
 

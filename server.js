@@ -112,9 +112,7 @@ app.post("/register", (request, response) => {
     RETURNING *;
   `, [name, email, password])
   .then(res => {
-    console.log("USER ADDED SUCCESSFULLY!!!!")
     userID = res.rows[0].id;
-    console.log("THE res.rows[0] is >>", res.rows[0]);
     request.session["userID"] = userID;
     response.redirect("/");
     return res.rows[0] ? res.rows[0] : null;
@@ -131,17 +129,14 @@ app.post("/login", (request, response) => {
     WHERE email = $1
   `, [email])
   .then(res => {
-    console.log("Reached here!!!")
-    console.log(res.rows[0]);
     if (res.rows[0]) {
       if (bcrypt.compareSync(password, res.rows[0].password)) {
-        console.log("user match in database");
         userID = res.rows[0].id;
+        userName = res.rows[0].name
         request.session["userID"] = userID;
         response.redirect("/");
       }
       else {
-        console.log("user not matched in database");
         response.redirect("/login");
       }
     } else {
