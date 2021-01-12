@@ -29,6 +29,24 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/", (req, res) => {
+    let user_id = req.session.userID;
+    let posting_id = Number(req.body.postingId);
+    const queryString = `
+    INSERT INTO favorites (user_id, posting_id)
+    VALUES
+    ($1, $2)
+    ;` ;
+    const values = [user_id, posting_id];
+      return db.query(queryString, values)
+      .then(result => {
+        res.send("Success!")
+      })
+      .catch(err => {
+        return console.log('query error:', err);
+      })
+    });
   return router;
 };
 

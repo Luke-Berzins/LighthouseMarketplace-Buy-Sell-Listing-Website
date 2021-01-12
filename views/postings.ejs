@@ -20,6 +20,7 @@
         <span><%= posting['title'] %></span>
         <span>$<%= posting['price'] %></span>
         <span><%= posting['description'] %></span>
+        <span class="posting-id"><%= posting['id'] %></span>
       </div>
       <div class="posting-right-hand-side-parent">
         <div class="posting-address-seller">
@@ -33,7 +34,7 @@
 
         <div class="posting-msg-fav-timestamp">
           <i class="far fa-comment-dots"></i>
-          <i class="far fa-heart"></i>
+          <button type="button" class="far fa-heart" style="text-decoration: none;" ></button>
           <span>
             <% let date = JSON.stringify(posting['date_created']); %>
             <%= date.slice(1, 11) %>
