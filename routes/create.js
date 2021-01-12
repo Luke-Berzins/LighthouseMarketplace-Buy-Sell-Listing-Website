@@ -4,7 +4,8 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
       const templateVars = {
-        user: req.session["userID"]
+        user: req.session["userID"],
+        isAdmin: req.session["isAdmin"]
       };
       res.render("create", templateVars);
   });

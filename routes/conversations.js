@@ -22,6 +22,7 @@ module.exports = (db) => {
       .then(data => {
         const templateVars = {
         user: req.session["userName"],
+        isAdmin: req.session["isAdmin"],
         userIdent: userID,
         messages: data.rows
       };
