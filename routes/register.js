@@ -26,7 +26,9 @@ module.exports = (db) => {
     .then(response => {
       console.log("USER ADDED SUCCESSFULLY!!!!")
       let userName = response.rows[0].name;
+      let userID = response.rows[0].id;
       req.session["userName"] = userName;
+      req.session["userID"] = userID;
       res.redirect("/");
       return response.rows[0] ? response.rows[0] : null;
     })
