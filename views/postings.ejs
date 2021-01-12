@@ -20,6 +20,7 @@
         <span><%= posting['title'] %></span>
         <span>$<%= posting['price'] %></span>
         <span><%= posting['description'] %></span>
+        <span class="posting-id"><%= posting['id'] %></span>
       </div>
       <div class="posting-right-hand-side-parent">
         <div class="posting-address-seller">
@@ -33,12 +34,21 @@
 
         <div class="posting-msg-fav-timestamp">
           <i class="far fa-comment-dots"></i>
-          <i class="far fa-heart"></i>
+          <button type="button" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
           <span>
             <% let date = JSON.stringify(posting['date_created']); %>
             <%= date.slice(1, 11) %>
           </span>
         </div>
+
+        <div class="posting-marksold-stock">
+          <button type="submit">Mark as Sold</button>
+          <i class="fas fa-check"></i>
+          <span>Available</span>
+          <i class="fas fa-times-circle"></i>
+          <span>Sold!</span>
+        </div>
+
       </div>
     </div>
     <% } %>
