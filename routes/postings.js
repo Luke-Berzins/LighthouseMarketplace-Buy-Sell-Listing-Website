@@ -5,17 +5,31 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+const { response } = require('express');
 const express = require('express');
 const users = require('./users');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`
+    const searchTerm = req.query.searchpostings;
+    console.log("THE SEARCH TERM IS", searchTerm);
+    let queryString = "";
+    let queryParam = "";
+    if (searchTerm) {
+      queryParam = [`%${searchTerm}%`];
+      queryString = `SELECT postings.* FROM postings
+      WHERE LOWER(postings.title) LIKE LOWER($1)
+      OR LOWER(postings.description) LIKE LOWER($1);`
+    } else {
+      queryString = `
       SELECT postings.*, users.name FROM postings
       JOIN users ON postings.user_id = users.id
-    `)
+    `
+    }
+    db.query(queryString, queryParam)
       .then(data => {
+        console.log("hellooooo", data.rows)
         const templateVars = {
           user: req.session["userName"],
           isAdmin: req.session["isAdmin"],
