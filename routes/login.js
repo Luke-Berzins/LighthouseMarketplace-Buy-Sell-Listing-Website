@@ -27,7 +27,9 @@ module.exports = (db) => {
         if (bcrypt.compareSync(password, response.rows[0].password)) {
           console.log("user match in database");
           let userName = response.rows[0].name;
+          let userID = response.rows[0].id;
           req.session["userName"] = userName;
+          req.session["userID"] = userID;
           res.redirect("/postings");
         }
         else {
