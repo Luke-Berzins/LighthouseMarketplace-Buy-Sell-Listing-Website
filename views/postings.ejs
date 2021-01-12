@@ -6,7 +6,7 @@
 
     <div class="search-bar-container">
       <input class="search-bar" type="text" placeholder="Search...">
-      <button class="fas fa-search" type="submit"></button>
+      <button class="fas fa-search search-postings-button" type="submit"></button>
       <button class="fas fa-filter" type="submit"></button>
       <button class="fas fa-sort" type="submit"></button>
     </div>
@@ -21,8 +21,7 @@
         <span>$<%= posting['price'] %></span>
         <span><%= posting['description'] %></span>
       </div>
-
-      <!-- <div class="posting-right-hand-side-parent">
+      <div class="posting-right-hand-side-parent">
         <div class="posting-address-seller">
           <span><%= posting['name'] %></span>
           <span>
@@ -41,9 +40,7 @@
           </span>
         </div>
       </div>
-      <h2>Hello friends</h2> -->
     </div>
     <% } %>
-
   </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/_head') %>
+  <body>
+    <%- include('partials/_navbar') %>
+
+    <div class="search-bar-container">
+      <input class="search-bar" type="text" placeholder="Search...">
+      <button class="fas fa-search" type="submit"></button>
+      <button class="fas fa-filter" type="submit"></button>
+      <button class="fas fa-sort" type="submit"></button>
+    </div>
+
+    <% for(let favorite of favorites) {%>
+      <div class="favorite-container">
+
+        <img class="favorite-image" src="<%= favorite['image_photo_url'] %>" alt="favorite-pic">
+
+        <div class="favorite-title-price-description">
+          <span><%= favorite['title'] %></span>
+          <span>$<%= favorite['price'] %></span>
+          <span><%= favorite['description'] %></span>
+        </div>
+        <div class="favorite-right-hand-side-parent">
+          <div class="favorite-address-seller">
+            <span><%= favorite['name'] %></span>
+            <span>
+              <%= favorite['city'] %>,
+              <%= favorite['province'] %>,
+              <%= favorite['post_code'] %>
+            </span>
+          </div>
+
+          <div class="favorite-msg-fav-timestamp">
+            <i class="far fa-comment-dots"></i>
+            <i class="far fa-heart"></i>
+            <span>
+              <% let date = JSON.stringify(favorite['date_created']); %>
+              <%= date.slice(1, 11) %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <% } %>
+
+  </body>
+</html>

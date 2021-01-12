@@ -13,11 +13,12 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`
       SELECT postings.*, users.name FROM postings
-      JOIN users ON postings.user_id = users.id;
+      JOIN users ON postings.user_id = users.id
     `)
       .then(data => {
         const templateVars = {
           user: req.session["userName"],
+          isAdmin: req.session["isAdmin"],
           postings: data.rows
         };
         res.render('postings', templateVars)
