@@ -8,12 +8,7 @@
 
       <% let currentConv = undefined;
       for(let message = 0; message < messages.length; message++) { %>
-        <% if (messages[message]['conversation_id'] !== currentConv && currentConv ) {  %>
-          <form method="POST" action="/login">
-            <h5>Email Address:<input type="email" placeholder="Enter email" name="email" required/></h5>
-            <button type="submit" class="btn btn-primary">Login!</button>
-          </form>
-          <% } %>
+
          <% if (messages[message]['conversation_id'] !== currentConv) {  %>
             <% currentConv = messages[message]['conversation_id']; %>
          </div>
@@ -38,12 +33,7 @@
                   </p>
                   <% } %>
                 </div>
-                <% if (message === messages.length) {  %>
-                  <form method="POST" action="/login">
-                    <h5>Email Address:<input type="email" placeholder="Enter email" name="email" required/></h5>
-                    <button type="submit" class="btn btn-primary">Login!</button>
-                  </form>
-                  <% } %>
+
 
           <% } %>
 
