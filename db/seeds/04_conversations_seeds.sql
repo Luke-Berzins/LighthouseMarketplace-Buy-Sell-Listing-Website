@@ -6,4 +6,5 @@ INSERT INTO conversations (seller_id, buyer_id, posting_id) VALUES (3, 7, 2);
 INSERT INTO conversations (seller_id, buyer_id, posting_id) VALUES (3, 6, 2);
 INSERT INTO conversations (seller_id, buyer_id, posting_id) VALUES (4, 9, 5);
 INSERT INTO conversations (seller_id, buyer_id, posting_id) VALUES (6, 2, 12);
+INSERT INTO conversations (seller_id, buyer_id, posting_id) VALUES (1, 6, 3);
 

@@ -1,19 +1,7 @@
 .conversations-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  height: 40%;
   margin: auto;
   border: thin solid black;
   margin-top: 1rem;
   margin-bottom: 1rem;
 
-  .userSent {
-    justify-content: left;
-  }
-
-  .userRecieved {
-    float:right;
-  }
 }

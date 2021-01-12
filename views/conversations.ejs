@@ -5,32 +5,33 @@
     <%- include('partials/_navbar') %>
     <h1>Conversations!</h1>
 
-    <div class="conversations-container">
-      <% let currentConv = 0;
-      let sender = undefined;
-      let reciever = undefined;
+      <% let currentConv = undefined;
       for(let message of messages) { %>
           <h1><% if (message['conversation_id'] !== currentConv) {  %>
-            <% currentConv++; %>
-            Convo <%= message['conversation_id'] %>
-            <% } %></h1>
+            <% currentConv = message['conversation_id']; %>
+            <%= message['title'] %>
+         <% } %></h1>
+            <div class="conversations-container">
             <% if (userIdent === message['sender_id']) { %>
                 <p class="userSent sentMessage"><%= message['content'] %></p>
+                <br>
                 <p class="userSent date">
                   <% let date = JSON.stringify(message['time_sent']); %>
-                  <%= date.slice(1, 11) %>
+                  sent at <%= date.slice(1, 11) %>
                 </p>
 
                 <% }  else {%>
                   <p class="userRecieved sentMessage"><%= message['content'] %></p>
+                  <br>
                   <p class="userRecieved date">
                     <% let date = JSON.stringify(message['time_sent']); %>
-                    <%= date.slice(1, 11) %>
+                    message recieved at <%= date.slice(1, 11) %>
                   </p>
 
-                          <% } %>
+                  <% } %>
+                </div>
           <% } %>
-    </div>
+
 
 
   </body>

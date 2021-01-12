@@ -29,4 +29,9 @@ INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sen
 INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 5, 9, 'hang outs?', 4, '2018-12-30T08:16:00.000Z');
 INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 3, 9, 'its been a while, hmu on myspace', 5, '2018-11-23T08:16:00.000Z');
 INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 6, 2, 'its been a while, hmu on myspace', 6, '2018-12-11T08:11:00.000Z');
-
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 6, 1, 'Hello dear friend', 9, '2018-11-23T08:16:00.000Z');
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 1, 6, 'Good day my old chum', 9, '2018-12-11T08:11:00.000Z');
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 6, 1, 'Shall we conduct business?', 9, '2018-11-23T08:16:00.000Z');
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 1, 6, 'Indubiliiltity my good man.', 9, '2018-12-11T08:11:00.000Z');
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 6, 1, 'Why I say, spit it out Sir HARHARHAR', 9, '2018-11-23T08:16:00.000Z');
+INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent) VALUES ( 1, 6, 'HARAHARHARAHARHAR.', 9, '2018-12-11T08:11:00.000Z');

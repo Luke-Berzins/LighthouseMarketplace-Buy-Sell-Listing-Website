@@ -11,10 +11,11 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let userID = req.session["userID"];
-    db.query(`SELECT messages.*
+    db.query(`SELECT messages.*, postings.*
     FROM messages
     JOIN conversations on conversations.id = conversation_id
     JOIN users on sender_id = users.id
+    JOIN postings on posting_id = postings.id
     WHERE users.id = $1
     OR receiver_id = $1
     ORDER BY conversation_id, time_sent;
