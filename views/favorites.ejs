@@ -11,8 +11,16 @@
       <button class="fas fa-sort" type="submit"></button>
     </div>
 
-    <% for(let favorite of favorites) {%>
-    <div class="favorites-container">
+    <% for(let posting of postings) {%>
+      <div class="posting-container">
+
+        <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
+
+        <div class="posting-title-price-description">
+          <span><%= posting['title'] %></span>
+          <span>$<%= posting['price'] %></span>
+          <span><%= posting['description'] %></span>
+        </div>
 
 
     </div>

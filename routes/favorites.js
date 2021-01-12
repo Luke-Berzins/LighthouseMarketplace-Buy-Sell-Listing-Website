@@ -13,7 +13,7 @@ module.exports = (db) => {
     db.query(`
     SELECT * FROM favorites
     JOIN postings ON favorites.user_id = postings.user_id
-    JOIN users ON postings.user_id = postings.user_id;
+    ;
   `)
       .then(data => {
         const templateVars = {
