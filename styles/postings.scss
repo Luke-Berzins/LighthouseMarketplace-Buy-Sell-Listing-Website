@@ -70,3 +70,11 @@
 .posting-msg-fav-timestamp {
   display: flex;
 }
+
+.posting-marksold-stock > .fa-check {
+  color: green;
+}
+
+.posting-marksold-stock > .fa-times-circle {
+  color :red;
+}
