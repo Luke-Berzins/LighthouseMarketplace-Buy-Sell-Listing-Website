@@ -7,30 +7,44 @@
     <h1>Conversations!</h1>
 
       <% let currentConv = undefined;
-      for(let message of messages) { %>
-          <h1 class="conversation_title"><% if (message['conversation_id'] !== currentConv) {  %>
-            <% currentConv = message['conversation_id']; %>
-            <%= message['title'] %>
-         <% } %></h1>
-            <div class="conversations-container">
-            <% if (userIdent === message['sender_id']) { %>
-                <p class="userSent sentMessage"><%= message['content'] %></p>
-                <br>
-                <p class="userSent date">
-                  <% let date = JSON.stringify(message['time_sent']); %>
-                  sent at <%= date.slice(1, 11) %>
+      for(let message = 0; message < messages.length; message++) { %>
+        <% if (messages[message]['conversation_id'] !== currentConv && currentConv ) {  %>
+          <form method="POST" action="/login">
+            <h5>Email Address:<input type="email" placeholder="Enter email" name="email" required/></h5>
+            <button type="submit" class="btn btn-primary">Login!</button>
+          </form>
+          <% } %>
+         <% if (messages[message]['conversation_id'] !== currentConv) {  %>
+            <% currentConv = messages[message]['conversation_id']; %>
+         </div>
+            <div class ="findMe">
+              <h1 class="conversation_title"><%= messages[message]['title'] %></h1>
+         <% } %>
+
+            <% if (userIdent === messages[message]['sender_id']) { %>
+              <div class="conversations-container userSent">
+                <p ><%= messages[message]['content'] %></p>
+                <p >
+                  <% let date = JSON.stringify(messages[message]['time_sent']); %>
+                  sent on <%= date.slice(1, 11) %>
                 </p>
 
                 <% }  else {%>
-                  <p class="userRecieved sentMessage"><%= message['content'] %></p>
-                  <br>
-                  <p class="userRecieved date">
-                    <% let date = JSON.stringify(message['time_sent']); %>
-                    message recieved at <%= date.slice(1, 11) %>
+                  <div class="conversations-container userRecieved">
+                  <p><%= messages[message]['content'] %></p>
+                  <p>
+                    <% let date = JSON.stringify(messages[message]['time_sent']); %>
+                    message recieved on <%= date.slice(1, 11) %>
                   </p>
-
                   <% } %>
                 </div>
+                <% if (message === messages.length) {  %>
+                  <form method="POST" action="/login">
+                    <h5>Email Address:<input type="email" placeholder="Enter email" name="email" required/></h5>
+                    <button type="submit" class="btn btn-primary">Login!</button>
+                  </form>
+                  <% } %>
+
           <% } %>
 
 

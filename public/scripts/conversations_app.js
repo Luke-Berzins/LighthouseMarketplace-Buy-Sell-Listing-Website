@@ -1,10 +1,6 @@
 $(() => {
-
-
-
-  $(".conversation_title").click(function(){
-     console.log("hi")
-    $("p").toggle();
+  $(".findMe").click(function(){
+     $(this).children(".conversations-container").toggle();
   });
 });
 
