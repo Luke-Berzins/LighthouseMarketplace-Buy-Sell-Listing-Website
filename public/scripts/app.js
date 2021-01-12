@@ -77,3 +77,37 @@
 //     }
 //   });;
 // });
+
+//Ajax GET request to render search results.
+
+// $(".search-postings-button").on('click', function(e) {
+//   // e.preventDefault();
+//   console.log("HELLOOO")
+//   $.ajax({
+//     method: "GET",
+//     url: "/postings",
+//     dataType: "json"
+//   })
+//     .then(response => {
+//       let search = $(".search-bar").innerHTML;
+//       console.log("search", search)
+//       const searchPostings = query => {
+//         db.query(`
+//       SELECT postings.*, users.name FROM postings
+//       JOIN users ON postings.user_id = users.id
+//       WHERE postings.name = $1
+//     `, [search])
+//       .then(data => {
+//         const templateVars = {
+//           user: req.session["userName"],
+//           postings: data.rows
+//         };
+//         res.render('postings', templateVars)
+//       })
+//       }
+//       searchPostings(e);
+//       $()
+//     })
+//     .catch(err => console.log(err));
+// });
+

@@ -1,14 +1,22 @@
 <nav class="navbar-user-not-logged-in">
   <div class="logo-and-name">
     <img class="lhl-marketplace-logo" src="https://raw.githubusercontent.com/Thinkful/bootcamp-finder/master/bootcamps/lighthouse-labs/logo.png" alt="Lighthouse">
-    <span class="company-name">LLH MarketPlace</span>
+    <span class="company-name">LHL MarketPlace</span>
   </div>
   <div class="nav-bar-buttons">
-    <% if (user) { %>
+    <% if (user && isAdmin) { %>
+      <span> Hey there, <%= user %> </span>
+      <span><a href="/create">Create Listing</a></span>
+      <span><a href="/">My Listings</a></span>
+      <span>Messages</span>
+      <span>My Favorites</span>
+      <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    <% } else if (user) { %>
       <span> Hey there, <%= user %> </span>
       <span>Messages</span>
       <span>My Favorites</span>
-      <span><a href="/create" style="text-decoration: none;">Create Listing</a></span>
       <form action="/logout" method="POST">
         <button type="submit">Logout</button>
       </form>
