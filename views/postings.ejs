@@ -8,8 +8,12 @@
       <form method="get" action="/postings">
         <input class="search-bar" type="text" placeholder="Search..." name="searchpostings">
         <button class="fas fa-search search-postings-button" type="submit"></button>
-        <button class="fas fa-filter" type="submit"></button>
-        <button class="fas fa-sort" type="submit"></button>
+        <div class="dropdown">
+          <button onclick="myFunction()" class="fas fa-filter"></button>
+          <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          </div>
+        </div>
       </form>
     </div>
     <% for(let posting of postings) {%>
