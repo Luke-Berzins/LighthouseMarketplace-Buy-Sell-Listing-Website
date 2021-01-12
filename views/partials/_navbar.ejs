@@ -9,14 +9,14 @@
       <span><a href="/create">Create Listing</a></span>
       <span><a href="/">My Listings</a></span>
       <span>Messages</span>
-      <span>My Favorites</span>
+      <span><a href="/favorites">My Favorites</a></span>
       <form action="/logout" method="POST">
         <button type="submit">Logout</button>
       </form>
     <% } else if (user) { %>
       <span> Hey there, <%= user %> </span>
       <span>Messages</span>
-      <span>My Favorites</span>
+      <span><a href="/favorites">My Favorites</a></span>
       <form action="/logout" method="POST">
         <button type="submit">Logout</button>
       </form>

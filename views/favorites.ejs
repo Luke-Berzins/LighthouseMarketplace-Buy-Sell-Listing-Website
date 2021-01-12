@@ -11,20 +11,37 @@
       <button class="fas fa-sort" type="submit"></button>
     </div>
 
-    <% for(let posting of postings) {%>
-      <div class="posting-container">
+    <% for(let favorite of favorites) {%>
+      <div class="favorite-container">
 
-        <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
+        <img class="favorite-image" src="<%= favorite['image_photo_url'] %>" alt="favorite-pic">
 
-        <div class="posting-title-price-description">
-          <span><%= posting['title'] %></span>
-          <span>$<%= posting['price'] %></span>
-          <span><%= posting['description'] %></span>
+        <div class="favorite-title-price-description">
+          <span><%= favorite['title'] %></span>
+          <span>$<%= favorite['price'] %></span>
+          <span><%= favorite['description'] %></span>
         </div>
+        <div class="favorite-right-hand-side-parent">
+          <div class="favorite-address-seller">
+            <span><%= favorite['name'] %></span>
+            <span>
+              <%= favorite['city'] %>,
+              <%= favorite['province'] %>,
+              <%= favorite['post_code'] %>
+            </span>
+          </div>
 
-
-    </div>
-    <% } %>
+          <div class="favorite-msg-fav-timestamp">
+            <i class="far fa-comment-dots"></i>
+            <i class="far fa-heart"></i>
+            <span>
+              <% let date = JSON.stringify(favorite['date_created']); %>
+              <%= date.slice(1, 11) %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <% } %>
 
   </body>
 </html>

@@ -10,14 +10,17 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    let userId = req.session.userID;
     db.query(`
-    SELECT * FROM favorites
-    JOIN postings ON favorites.user_id = postings.user_id
-    ;
-  `)
+    SELECT favorites.*, postings.* FROM favorites
+    JOIN users ON favorites.user_id = users.id
+    JOIN postings ON favorites.posting_id =  postings.id
+    WHERE users.id = $1;
+    `, [userId])
       .then(data => {
         const templateVars = {
           user: req.session["userName"],
+          isAdmin: req.session["isAdmin"],
           favorites: data.rows
         };
         res.render('favorites', templateVars)
