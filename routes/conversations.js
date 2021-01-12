@@ -10,19 +10,19 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    console.log(req.session["userID"])
-    let user = req.session["userName"];
-    console.log("users", user)
+    let userID = req.session["userID"];
     db.query(`SELECT messages.*
     FROM messages
     JOIN conversations on conversations.id = conversation_id
     JOIN users on sender_id = users.id
-    WHERE users.name = '${user}'
+    WHERE users.id = $1
+    OR receiver_id = $1
     ORDER BY conversation_id, time_sent;
-    `)
+    `, [userID])
       .then(data => {
         const templateVars = {
         user: req.session["userName"],
+        userIdent: userID,
         messages: data.rows
       };
         res.render('conversations', templateVars)
