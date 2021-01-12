@@ -1,7 +1,28 @@
-.conversations-container {
-  margin: auto;
-  border: thin solid black;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
+.findMe {
+  display: flex;
+  flex-direction: column;
 }
+
+.conversations-container {
+  border: thin solid black;
+  margin: 1rem;
+  display: none;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: #5A92C6;
+}
+
+
+
+.userSent {
+  padding-left: 4rem;
+  width: fit-content;
+}
+
+.userRecieved {
+  padding-right: 4rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 4rem;
+}
+
