@@ -71,6 +71,10 @@
   display: flex;
 }
 
-.posting-id {
-  visibility: hidden;
+.posting-marksold-stock > .fa-check {
+  color: green;
+}
+
+.posting-marksold-stock > .fa-times-circle {
+  color :red;
 }

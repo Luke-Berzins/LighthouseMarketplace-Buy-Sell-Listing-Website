@@ -31,6 +31,7 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    console.log("STRANGE")
     let user_id = req.session.userID;
     let posting_id = Number(req.body.postingId);
     const queryString = `
