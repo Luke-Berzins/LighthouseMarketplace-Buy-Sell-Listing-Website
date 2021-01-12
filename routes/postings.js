@@ -12,11 +12,8 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    // const searchTerm = req.query.searchTerm;
-    //console.log("THE SEARCH TERM IS", searchTerm);
-
     const searchTerm = req.query.searchpostings;
-    console.log("ROHIT", searchTerm);
+    console.log("THE SEARCH TERM IS", searchTerm);
     let queryString = "";
     let queryParam = "";
     if (searchTerm) {
@@ -30,7 +27,6 @@ module.exports = (db) => {
       JOIN users ON postings.user_id = users.id
     `
     }
-
     db.query(queryString, queryParam)
       .then(data => {
         console.log("hellooooo", data.rows)
