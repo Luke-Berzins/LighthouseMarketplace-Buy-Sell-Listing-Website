@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
@@ -7,7 +8,7 @@
 
       <% let currentConv = undefined;
       for(let message of messages) { %>
-          <h1><% if (message['conversation_id'] !== currentConv) {  %>
+          <h1 class="conversation_title"><% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv = message['conversation_id']; %>
             <%= message['title'] %>
          <% } %></h1>
