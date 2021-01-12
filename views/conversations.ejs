@@ -10,20 +10,26 @@
       let sender = undefined;
       let reciever = undefined;
       for(let message of messages) { %>
-
           <h1><% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv++; %>
             Convo <%= message['conversation_id'] %>
             <% } %></h1>
+            <% if (userIdent === message['sender_id']) { %>
+                <p class="userSent sentMessage"><%= message['content'] %></p>
+                <p class="userSent date">
+                  <% let date = JSON.stringify(message['time_sent']); %>
+                  <%= date.slice(1, 11) %>
+                </p>
 
-          <p><%= message['content'] %></p>
-          <span>
-            <% let date = JSON.stringify(message['time_sent']); %>
-            <%= date.slice(1, 11) %>
-          </span>
+                <% }  else {%>
+                  <p class="userRecieved sentMessage"><%= message['content'] %></p>
+                  <p class="userRecieved date">
+                    <% let date = JSON.stringify(message['time_sent']); %>
+                    <%= date.slice(1, 11) %>
+                  </p>
 
-      <% } %>
-
+                          <% } %>
+          <% } %>
     </div>
 
 

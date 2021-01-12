@@ -8,4 +8,12 @@
   border: thin solid black;
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  .userSent {
+    justify-content: left;
+  }
+
+  .userRecieved {
+    float:right;
+  }
 }

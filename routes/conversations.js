@@ -25,6 +25,7 @@ module.exports = (db) => {
         userIdent: userID,
         messages: data.rows
       };
+        console.log(templateVars)
         res.render('conversations', templateVars)
       })
       .catch(err => {
