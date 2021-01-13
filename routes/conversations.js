@@ -27,13 +27,28 @@ module.exports = (db) => {
         userIdent: userID,
         messages: data.rows
       };
-        console.log(templateVars)
         res.render('conversations', templateVars)
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
+      });
+
+
+      router.post("/", (req, res) => {
+        console.log("hellloooooo", req.body)
+        let user_id = req.session["userID"];
+        let content = req.body["message"]
+          return db.query(`
+          INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
+          VALUES
+          ($1, $2, $3, $4, Now())
+          ;`, [user_id, 4, content, 1])
+        .then(res => {
+          console.log("MSG SENT SUCCESSFULLY!!!!")
+        })
+        .catch(e => res.send(e));
       });
   });
   return router;
