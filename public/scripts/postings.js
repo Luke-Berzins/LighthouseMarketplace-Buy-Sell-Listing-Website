@@ -1,3 +1,5 @@
+const { on } = require("nodemon");
+
 $(() => {
   $(".fa-heart").on('click', function(e) {
     e.preventDefault();
@@ -7,7 +9,7 @@ $(() => {
       url: "/postings",
       data: {postingId: $postingIdClicked}
     }).then((response) => {
-      console.log("HELLOOOO");
+      console.log(response)
     });;
   });
   });

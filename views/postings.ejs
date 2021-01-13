@@ -29,7 +29,7 @@
 
         <div class="posting-msg-fav-timestamp">
           <i class="far fa-comment-dots"></i>
-          <button type="button" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
+          <button type="button" id="favButton" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
           <span>
             <% let date = JSON.stringify(posting['date_created']); %>
             <%= date.slice(1, 11) %>
