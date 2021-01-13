@@ -45,9 +45,9 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-  function myFunction(x) {
-    x.classList.toggle("fas", "fa-heart");
-  }
+function toggleButton(x) {
+  x.classList.toggle("fas", "fa-heart");
+}
 
 
 

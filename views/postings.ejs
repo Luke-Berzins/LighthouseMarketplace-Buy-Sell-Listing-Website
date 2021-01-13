@@ -27,7 +27,7 @@
           </div>
           <div class="posting-msg-fav-timestamp">
             <button class="icons"><a href="/conversations"><i class="far fa-comment-dots"></i></a></button>
-            <button class="icons" type="submit"><i class="far fa-heart" onclick="myFunction(this)"></i></button>
+            <button class="icons" type="submit"><i class="far fa-heart" onclick="toggleButton(this)"></i></button>
             <span>
               <% let date = JSON.stringify(posting['date_created']); %>
               <%= date.slice(1, 11) %>
