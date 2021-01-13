@@ -4,7 +4,7 @@ $(() => {
   });
 
   $(".sendMessage").click(function(){
-    let newMess = $("[name='message']").val();
+    let newMess = $(this).siblings(".newMessageBody").val();
     console.log("newMess", newMess);
     let newMessage = `<div class='conversations-container userSent userSentNew'>
     <p> ${newMess} </p>
@@ -17,12 +17,3 @@ $(() => {
 
  });
 });
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
->>>>>>> 5aee0571b838e351b401dfc6966b4196b5d481b1
