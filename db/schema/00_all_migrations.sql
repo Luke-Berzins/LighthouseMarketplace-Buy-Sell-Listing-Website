@@ -26,7 +26,8 @@ CREATE TABLE postings (
   province VARCHAR(255) NOT NULL,
   post_code VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
-  date_created TIMESTAMP DEFAULT NOW()
+  date_created TIMESTAMP DEFAULT NOW(),
+  available BOOLEAN DEFAULT TRUE
 );
 
 
