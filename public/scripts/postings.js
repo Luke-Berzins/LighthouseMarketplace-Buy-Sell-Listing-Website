@@ -1,5 +1,3 @@
-const { on } = require("nodemon");
-
 $(() => {
   $(".fa-heart").on('click', function(e) {
     e.preventDefault();
@@ -9,7 +7,7 @@ $(() => {
       url: "/postings",
       data: {postingId: $postingIdClicked}
     }).then((response) => {
-      console.log(response)
+      console.log("HELLOOOO");
     });;
   });
 });
@@ -47,9 +45,9 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-
-
-
+  function myFunction(x) {
+    x.classList.toggle("fas", "fa-heart");
+  }
 
 
 

@@ -26,8 +26,8 @@
             </span>
           </div>
           <div class="posting-msg-fav-timestamp">
-            <i class="far fa-comment-dots"></i>
-            <button type="button" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
+            <button class="icons"><a href="/conversations"><i class="far fa-comment-dots"></i></a></button>
+            <button class="icons" type="submit"><i class="far fa-heart" onclick="myFunction(this)"></i></button>
             <span>
               <% let date = JSON.stringify(posting['date_created']); %>
               <%= date.slice(1, 11) %>
@@ -37,7 +37,7 @@
           <% if (user && isAdmin) { %>
           <div class="posting-marksold-stock">
             <button class="mark-item-button" type="submit">Mark as Sold</button>
-            <i id="item-availability" class="fas fa-check"></i>
+            <i id="item-availability" class="far fa-check"></i>
           </div>
           <% } %>
         </div>
