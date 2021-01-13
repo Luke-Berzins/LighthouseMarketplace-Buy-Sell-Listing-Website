@@ -3,23 +3,23 @@ $(() => {
      $(this).siblings(".conversations-container").toggle();
   });
 
-  let conversationID = $(this).siblings(".conversation_id");
+  $(".sendMessage").click(function(){
+    let newMess = $("[name='message']").val();
+    console.log("newMess", newMess);
+    let newMessage = `<div class='conversations-container userSent userSentNew'>
+    <p> ${newMess} </p>
+    <p style="color: white;"> Just sent </p>
+    </div>`
 
+
+    $(this).parents(".findMe").append(newMessage);
+
+
+ });
 });
 
 
 
 
 
-// $(() => {
-//   $(".far").on('click', function(e) {
-//     e.preventDefault();
-//     $.ajax({
-//       method: "POST",
-//       url: "/postings",
-//       data: {postingId: 5}
-//     }).then((response) => {
-//       console.log(response);
-//     });;
-//   });
-//   });
+

@@ -28,10 +28,10 @@
               </div>
               <div class="conversations-container">
             <form method="POST" action="/conversations">
-              <input type="text" placeholder="Message" name="message">
+              <input class="newMessageBody" type="text" placeholder="Message" name="message">
               <input type = "hidden" name="conversation_id" value="<%= message['conversation_id'] %>"></input>
               <input type = "hidden" name="otherUser_id" value="<%= otherUser %>"></input>
-              <button type="submit" class="fa fa-paper-plane"></button>
+              <button class ="sendMessage"type="submit" class="fa fa-paper-plane"></button>
             </form>
               </div>
          <% } %>
