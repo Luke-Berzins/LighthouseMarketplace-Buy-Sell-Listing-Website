@@ -21,6 +21,7 @@ CREATE TABLE postings (
   title VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
   description TEXT NOT NULL,
+  location_name VARCHAR(255) NOT NULL,
   street VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
   province VARCHAR(255) NOT NULL,
