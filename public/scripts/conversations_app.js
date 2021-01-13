@@ -1,6 +1,6 @@
 $(() => {
-  $(".findMe").click(function(){
-     $(this).children(".conversations-container").toggle();
+  $(".conversation_title").click(function(){
+     $(this).siblings(".conversations-container").toggle();
   });
 });
 
