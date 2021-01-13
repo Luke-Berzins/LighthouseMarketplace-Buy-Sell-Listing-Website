@@ -6,22 +6,32 @@
   <div class="nav-bar-buttons">
     <% if (user && isAdmin) { %>
       <span> Hey there, <%= user %> </span>
-      <span><a href="/create">Create Listing</a></span>
-      <span><a href="/">My Listings</a></span>
-      <span><a href="/postings">Listings</a></span>
-      <span><a href="/conversations">Messages</a></span>
-      <span><a href="/favorites">My Favorites</a></span>
-      <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/create">Create Listing</a>
+          <a href="/">My Listings</a>
+          <a href="/postings">Listings</a>
+          <a href="/conversations">Messages</a>
+          <a href="/favorites">My Favorites</a>
+          <form action="/logout" method="POST">
+            <a><button type="submit">Logout</button></a>
+          </form>
+        </div>
+      </div>
     <% } else if (user) { %>
       <span> Hey there, <%= user %> </span>
-      <span><a href="/postings">Listings</a></span>
-      <span><a href="/conversations">Messages</a></span>
-      <span><a href="/favorites">My Favorites</a></span>
-      <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/postings">Listings</a>
+          <a href="/conversations">Messages</a>
+          <a href="/favorites">My Favorites</a>
+          <form action="/logout" method="POST">
+            <a><button type="submit">Logout</button></a>
+          </form>
+        </div>
+      </div>
     <% } else { %>
       <button><a href="/register" style="text-decoration: none;">Register</a></button>
       <button><a href="/login" style="text-decoration: none;">Login</a></button>
