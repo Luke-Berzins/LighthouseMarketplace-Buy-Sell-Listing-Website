@@ -8,6 +8,7 @@
       <span> Hey there, <%= user %> </span>
       <span><a href="/create">Create Listing</a></span>
       <span><a href="/">My Listings</a></span>
+      <span><a href="/postings">Listings</a></span>
       <span><a href="/conversations">Messages</a></span>
       <span><a href="/favorites">My Favorites</a></span>
       <form action="/logout" method="POST">
@@ -15,6 +16,7 @@
       </form>
     <% } else if (user) { %>
       <span> Hey there, <%= user %> </span>
+      <span><a href="/postings">Listings</a></span>
       <span><a href="/conversations">Messages</a></span>
       <span><a href="/favorites">My Favorites</a></span>
       <form action="/logout" method="POST">
