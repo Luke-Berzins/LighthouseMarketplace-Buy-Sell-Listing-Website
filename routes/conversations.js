@@ -11,7 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let userID = req.session["userID"];
-    db.query(`SELECT messages.*, postings.*
+    db.query(`SELECT messages.*, postings.*, name
     FROM messages
     JOIN conversations on conversations.id = conversation_id
     JOIN users on sender_id = users.id

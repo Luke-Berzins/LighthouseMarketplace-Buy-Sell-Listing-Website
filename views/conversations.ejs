@@ -8,22 +8,22 @@
 
       <% let currentConv = undefined;
           let otherUser = undefined;
+          let otherUserName = ""
       for(let message of messages) { %>
-
          <% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv = message['conversation_id']; %>
             <%
             if (userIdent === message['sender_id']) {
-
                 otherUser = message['receiver_id'];
                 } else {
+                otherUserName = message['name'];
                 otherUser = message['sender_id'];
                 }
               %>
          </div>
             <div class ="findMe">
               <div class="conversation_title">
-              <h1><%= message['title'] %></h1>
+              <h1><%= message['title'] %> </h1>
               <button class="fas fa-reply"></button>
               </div>
               <div class="conversations-container">
@@ -46,10 +46,13 @@
 
                 <% }  else {%>
                   <div class="conversations-container userRecieved">
+                  <% otherUserName = message["name"] %>
+                  <p class="convoRes"><%= otherUserName %> said</p>
+                  <p></p>
                   <p><%= message['content'] %></p>
-                  <p>
+                  <p class="convoRes">
                     <% let date = JSON.stringify(message['time_sent']); %>
-                    message recieved on <%= date.slice(1, 11) %>
+                    on <%= date.slice(1, 11) %>
                   </p>
                   <% } %>
                 </div>
