@@ -42,13 +42,6 @@ module.exports = (db) => {
         };
         res.render('postings', templateVars)
 
-        // if(searchTerm){
-        //   //res.json({result: data.rows})
-        // } else{
-        //   res.render('postings', templateVars)
-        // }
-
-
       })
       .catch(err => {
         res

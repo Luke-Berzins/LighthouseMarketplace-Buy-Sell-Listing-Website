@@ -46,6 +46,7 @@ const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
 const postingsRoutes = require("./routes/postings");
+const markItemRoutes = require("./routes/markItems");
 const conversationsRoutes = require("./routes/conversations");
 const favoritesRoutes = require("./routes/favorites");
 const messagesRoutes = require("./routes/messages");
@@ -67,6 +68,7 @@ app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/create", createRoutes(db));
+app.use("/markItems", markItemRoutes(db));
 
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
