@@ -33,14 +33,6 @@ $(() => {
   });
 });
 
-function setColor(e, btn, color) {
-  var target = e.target,
-      count = +target.dataset.count;
-
-   target.style.backgroundColor = count === 1 ? "#FF0000" : '#FFFFFF';
-   target.dataset.count = count === 1 ? 0 : 1;
-};
-
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
