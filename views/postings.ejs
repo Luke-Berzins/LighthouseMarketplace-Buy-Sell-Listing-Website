@@ -9,9 +9,20 @@
         <input class="search-bar" type="text" placeholder="Search..." name="searchpostings">
         <button class="fas fa-search search-postings-button" type="submit"></button>
       </form>
+<<<<<<< HEAD
       <button class="fas fa-filter" type="submit"></button>
       <button class="fas fa-sort" type="submit"></button>
 
+=======
+      <div class="dropdown">
+        <button onclick="myFunction()" class="fas fa-filter"></button>
+        <div id="myDropdown" class="dropdown-content">
+          <form method="get" action="/postings">
+          <input type="itemprice" placeholder="Price.." id="myInput" name="filterprice">
+          </form>
+        </div>
+      </div>
+>>>>>>> fc2a60bb3ffb16ecb8a1ea5efd51829f5192d076
     </div>
     <% for(let posting of postings) {%>
     <div class="posting-container">
@@ -56,3 +67,4 @@
     <% } %>
   </body>
 </html>
+
