@@ -14,7 +14,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const searchTerm = req.query.searchpostings;
     const priceFilter = req.query.filterprice;
-    console.log("THE SEARCH TERM IS", priceFilter);
     let queryString = "";
     let queryParam = "";
     if (searchTerm) {
@@ -29,19 +28,17 @@ module.exports = (db) => {
     } else {
       queryString = `
       SELECT postings.*, users.name FROM postings
-      JOIN users ON postings.user_id = users.id
+      JOIN users ON postings.user_id = users.id;
     `
     }
     db.query(queryString, queryParam)
       .then(data => {
-        console.log("hellooooo", data.rows)
         const templateVars = {
           user: req.session["userName"],
           isAdmin: req.session["isAdmin"],
           postings: data.rows
         };
         res.render('postings', templateVars)
-
       })
       .catch(err => {
         res
@@ -51,7 +48,6 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    console.log("STRANGE")
     let user_id = req.session.userID;
     let posting_id = Number(req.body.postingId);
     const queryString = `
