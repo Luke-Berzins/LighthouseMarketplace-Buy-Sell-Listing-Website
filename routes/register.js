@@ -29,7 +29,7 @@ module.exports = (db) => {
       let userID = response.rows[0].id;
       req.session["userName"] = userName;
       req.session["userID"] = userID;
-      res.redirect("/");
+      res.redirect("/postings");
       return response.rows[0] ? response.rows[0] : null;
     })
     .catch(e => response.send(e));
