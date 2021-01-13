@@ -7,45 +7,45 @@
     <%- include('partials/_search-bar') %>
 
     <% for(let posting of postings) {%>
-    <div class="posting-container">
+      <% if (posting['available']) { %>
+      <div class="posting-container">
+        <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
+        <div class="posting-title-price-description">
+          <span><%= posting['title'] %></span>
+          <span>$<%= posting['price'] %></span>
+          <span><%= posting['description'] %></span>
+          <span class="posting-id"><%= posting['id'] %></span>
+        </div>
+        <div class="posting-right-hand-side-parent">
+          <div class="posting-address-seller">
+            <span><%= posting['name'] %></span>
+            <span>
+              <%= posting['city'] %>,
+              <%= posting['province'] %>,
+              <%= posting['post_code'] %>
+            </span>
+          </div>
+          <div class="posting-msg-fav-timestamp">
+            <i class="far fa-comment-dots"></i>
+            <button type="button" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
+            <span>
+              <% let date = JSON.stringify(posting['date_created']); %>
+              <%= date.slice(1, 11) %>
+            </span>
+          </div>
 
-      <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
-
-      <div class="posting-title-price-description">
-        <span><%= posting['title'] %></span>
-        <span>$<%= posting['price'] %></span>
-        <span><%= posting['description'] %></span>
-        <span class="posting-id"><%= posting['id'] %></span>
+          <% if (user && isAdmin) { %>
+          <div class="posting-marksold-stock">
+            <button type="submit">Mark as Sold</button>
+            <i class="fas fa-check"></i>
+            <span>Available</span>
+            <i class="fas fa-times-circle"></i>
+            <span>Sold!</span>
+          </div>
+          <% } %>
+        </div>
       </div>
-      <div class="posting-right-hand-side-parent">
-        <div class="posting-address-seller">
-          <span><%= posting['name'] %></span>
-          <span>
-            <%= posting['city'] %>,
-            <%= posting['province'] %>,
-            <%= posting['post_code'] %>
-          </span>
-        </div>
-
-        <div class="posting-msg-fav-timestamp">
-          <i class="far fa-comment-dots"></i>
-          <button type="button" class="far fa-heart" onclick="setColor(event, 'button', '#101010')"; data-count="1"></button>
-          <span>
-            <% let date = JSON.stringify(posting['date_created']); %>
-            <%= date.slice(1, 11) %>
-          </span>
-        </div>
-
-        <div class="posting-marksold-stock">
-          <button type="submit">Mark as Sold</button>
-          <i class="fas fa-check"></i>
-          <span>Available</span>
-          <i class="fas fa-times-circle"></i>
-          <span>Sold!</span>
-        </div>
-
-      </div>
-    </div>
+      <% } %>
     <% } %>
   </body>
 </html>
