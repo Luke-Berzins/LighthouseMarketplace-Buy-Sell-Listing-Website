@@ -13,7 +13,8 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const searchTerm = req.query.searchpostings;
-    console.log("THE SEARCH TERM IS", searchTerm);
+    const priceFilter = req.query.filterprice;
+    console.log("THE SEARCH TERM IS", priceFilter);
     let queryString = "";
     let queryParam = "";
     if (searchTerm) {
@@ -21,6 +22,10 @@ module.exports = (db) => {
       queryString = `SELECT postings.* FROM postings
       WHERE LOWER(postings.title) LIKE LOWER($1)
       OR LOWER(postings.description) LIKE LOWER($1);`
+    } else if (priceFilter) {
+      queryParam = [`${priceFilter}`];
+      queryString = `SELECT postings.* FROM postings
+      WHERE postings.price <= $1;`
     } else {
       queryString = `
       SELECT postings.*, users.name FROM postings
@@ -36,6 +41,14 @@ module.exports = (db) => {
           postings: data.rows
         };
         res.render('postings', templateVars)
+
+        // if(searchTerm){
+        //   //res.json({result: data.rows})
+        // } else{
+        //   res.render('postings', templateVars)
+        // }
+
+
       })
       .catch(err => {
         res
