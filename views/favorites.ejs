@@ -4,12 +4,7 @@
   <body>
     <%- include('partials/_navbar') %>
 
-    <div class="search-bar-container">
-      <input class="search-bar" type="text" placeholder="Search...">
-      <button class="fas fa-search" type="submit"></button>
-      <button class="fas fa-filter" type="submit"></button>
-      <button class="fas fa-sort" type="submit"></button>
-    </div>
+    <%- include('partials/_search-bar') %>
 
     <% for(let favorite of favorites) {%>
       <div class="favorite-container">
