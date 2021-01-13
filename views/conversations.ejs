@@ -7,10 +7,19 @@
     <h1>Conversations!</h1>
 
       <% let currentConv = undefined;
+          let otherUser = undefined;
       for(let message of messages) { %>
 
          <% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv = message['conversation_id']; %>
+            <%
+            if (userIdent === message['sender_id']) {
+
+                otherUser = message['receiver_id'];
+                } else {
+                otherUser = message['sender_id'];
+                }
+              %>
          </div>
             <div class ="findMe">
               <div class="conversation_title">
@@ -20,7 +29,8 @@
               <div class="conversations-container">
             <form method="POST" action="/conversations">
               <input type="text" placeholder="Message" name="message">
-              <span class="conversation_id"><%= message['conversation_id'] %></span>
+              <input type = "hidden" name="conversation_id" value="<%= message['conversation_id'] %>"></input>
+              <input type = "hidden" name="otherUser_id" value="<%= otherUser %>"></input>
               <button type="submit" class="fa fa-paper-plane"></button>
             </form>
               </div>
@@ -28,8 +38,8 @@
 
             <% if (userIdent === message['sender_id']) { %>
               <div class="conversations-container userSent">
-                <p ><%= message['content'] %></p>
-                <p >
+                <p><%= message['content'] %></p>
+                <p>
                   <% let date = JSON.stringify(message['time_sent']); %>
                   sent on <%= date.slice(1, 11) %>
                 </p>
