@@ -18,10 +18,11 @@
               <button class="fas fa-reply"></button>
               </div>
               <div class="conversations-container">
-            <form method="POST" action="/create"></form>
-              <input type="text" placeholder="Message">
-              <button class="fa fa-paper-plane"></button>
-              </form>
+            <form method="POST" action="/conversations">
+              <input type="text" placeholder="Message" name="message">
+              <span class="conversation_id"><%= message['conversation_id'] %></span>
+              <button type="submit" class="fa fa-paper-plane"></button>
+            </form>
               </div>
          <% } %>
 
