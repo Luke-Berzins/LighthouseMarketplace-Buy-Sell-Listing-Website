@@ -44,7 +44,7 @@ module.exports = (db) => {
           INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
           VALUES
           ($1, $2, $3, $4, Now())
-          ;`, [user_id, 5, content, 1])
+          ;`, [user_id, 4, content, 1])
         .then(res => {
           console.log("MSG SENT SUCCESSFULLY!!!!")
         })
