@@ -7,28 +7,38 @@
     <h1>Conversations!</h1>
 
       <% let currentConv = undefined;
-      for(let message = 0; message < messages.length; message++) { %>
+      for(let message of messages) { %>
 
-         <% if (messages[message]['conversation_id'] !== currentConv) {  %>
-            <% currentConv = messages[message]['conversation_id']; %>
+         <% if (message['conversation_id'] !== currentConv) {  %>
+            <% currentConv = message['conversation_id']; %>
          </div>
             <div class ="findMe">
-              <h1 class="conversation_title"><%= messages[message]['title'] %></h1>
+              <div class="conversation_title">
+              <h1><%= message['title'] %></h1>
+              <button class="fas fa-reply"></button>
+              </div>
+              <div class="conversations-container">
+            <form method="POST" action="/conversations">
+              <input type="text" placeholder="Message">
+              <span class="conversation_id"><%= message['conversation_id'] %></span>
+              <button type="submit" class="fa fa-paper-plane"></button>
+            </form>
+              </div>
          <% } %>
 
-            <% if (userIdent === messages[message]['sender_id']) { %>
+            <% if (userIdent === message['sender_id']) { %>
               <div class="conversations-container userSent">
-                <p ><%= messages[message]['content'] %></p>
+                <p ><%= message['content'] %></p>
                 <p >
-                  <% let date = JSON.stringify(messages[message]['time_sent']); %>
+                  <% let date = JSON.stringify(message['time_sent']); %>
                   sent on <%= date.slice(1, 11) %>
                 </p>
 
                 <% }  else {%>
                   <div class="conversations-container userRecieved">
-                  <p><%= messages[message]['content'] %></p>
+                  <p><%= message['content'] %></p>
                   <p>
-                    <% let date = JSON.stringify(messages[message]['time_sent']); %>
+                    <% let date = JSON.stringify(message['time_sent']); %>
                     message recieved on <%= date.slice(1, 11) %>
                   </p>
                   <% } %>
