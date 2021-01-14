@@ -29,7 +29,7 @@ module.exports = (db) => {
           ($1, $2, $3, $4, Now())
           ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]])
         })
-        .then(resp => {
+        .then(res => {
           res.redirect("/conversations")
         })
         .catch(e => res.send(e));
