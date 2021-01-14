@@ -28,7 +28,16 @@
             </span>
           </div>
           <div class="posting-msg-fav-timestamp">
-            <button class="icons"><a href="/conversations"><i class="far fa-comment-dots"></i></a></button>
+            <div class="dropdown">
+              <button class="dropbtn">Send Message</button>
+              <div class="dropdown-content">
+    <form method="POST" action="/newConversation">
+        <input placeholder="Send message" name="newMessage" required/>
+        <button type="submit" class="btn btn-primary">Sent!</button>
+    </form>
+              </div>
+            </div>
+
             <button class="icons" type="submit"><i class="far fa-heart" onclick="toggleButton(this)"></i></button>
             <span>
               <% let date = JSON.stringify(posting['date_created']); %>
