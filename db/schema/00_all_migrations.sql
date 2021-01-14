@@ -58,4 +58,5 @@ CREATE TABLE messages (
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
 ALTER USER labber WITH Superuser;
+ALTER TABLE favorites ADD CONSTRAINT FavoriteID UNIQUE(user_id, posting_id);
 
