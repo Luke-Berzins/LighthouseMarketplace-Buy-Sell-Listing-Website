@@ -11,10 +11,10 @@
   border-radius: 0.5rem;
   padding-bottom: 1.5rem;
   color: white;
-  background: black;
+  background: #af0c0c8f;
 }
 
-body.create {
+body {
   text-align: center;
   background: url(/images/sneaker-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -26,6 +26,7 @@ body.create {
 .create h2 {
   color: whitesmoke;
   font-family: 'Gugi', cursive;
+  text-decoration: underline;
 }
 
 .create h3 {

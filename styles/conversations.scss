@@ -1,6 +1,11 @@
 .findMe {
   display: flex;
   flex-direction: column;
+  border: thin solid black;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: #af0c0c8f;
 }
 
 .conversations-container {
@@ -9,9 +14,16 @@
   display: none;
   padding: 1rem;
   border-radius: 25px;
-  background-color: #cc29009c;
+  background-color: #C79D5A;
 }
 
+#convPageTitle {
+  border: thin solid black;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: #af0c0c8f;
+}
 
 #convPageTitle {
   margin: 3rem;
