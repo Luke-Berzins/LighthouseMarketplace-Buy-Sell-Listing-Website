@@ -6,6 +6,7 @@
   padding: 1rem;
   border-radius: 25px;
   background-color:#5e0000a9;
+  color: white
 }
 
 .conversations-container {
@@ -23,6 +24,7 @@
   padding: 1rem;
   border-radius: 25px;
   background-color: #5e0000a9;
+  color: white
 }
 
 #convPageTitle {
@@ -30,12 +32,15 @@
   font-family: 'Gugi', cursive;
   color: rgb(0, 0, 0);
   font-size: 5rem;
+  color: white
 }
 .conversation_title {
   margin-left: 5rem;
   margin-top: 2rem;
 }
-
+ .conversation_title h1 {
+   color: white;
+ }
 
 .userSent {
   padding-left: 4rem;
@@ -50,7 +55,7 @@
 }
 
 .convoRes {
-  color: rgb(46, 46, 46);
+  color:white;
 }
 
 .userSentNew {

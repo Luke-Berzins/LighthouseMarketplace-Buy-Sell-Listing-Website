@@ -2,12 +2,19 @@
 <html lang ="en">
 <%- include('partials/_head') %>
 <body>
-  <%- include('partials/_navbar') %>
-  <h2>Login</h2>
+  <nav class="navbar-container">
+    <div class="logo-and-name">
+      <img class="sneek-logo" src="/images/sneaker-store-logo.png" alt="company-logo" >
+      <span class="company-name">SNEEK</span>
+    </div>
+    </nav>
+  <div class="login-container">
+    <h2>Login</h2>
     <form method="POST" action="/login">
         <p>Email Address:<input type="email" placeholder="Enter email" name="email" required/></p>
         <p>Password:<input type="password" placeholder="Password" name="password" required/></p>
-        <button type="submit" class="btn btn-primary">Login!</button>
+        <button type="submit" id="login-submit" class="btn btn-primary">Login!</button>
     </form>
+  </div>
 </body>
 </html>
