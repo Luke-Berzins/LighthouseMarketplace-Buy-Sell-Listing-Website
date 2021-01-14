@@ -33,7 +33,8 @@
   border: thin solid black;
   border-radius: 6px;
   text-transform: capitalize;
-  background-color: lightgray;
+  background: #5e0000be;
+  color: white
 }
 
 button.icons {
@@ -46,8 +47,8 @@ button.icons {
 .mark-item-button, .remove-item-button {
   display:inline-block;
   padding:.7em 1.7em;
-  margin:auto;
   border-radius:0.2em;
+  margin-top: 0.2rem;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
