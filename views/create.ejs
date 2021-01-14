@@ -17,7 +17,15 @@
     <p>Price:<input type="price" placeholder="Price" name="price" required/></p>
     <p>Description:<input type="description" placeholder="Description" name="description" required/></p>
     <h3>Address:</h3>
-    <p>Location Name:<input type="location" placeholder="Location" name="location" required/></p>
+    <p>Location Name:</p>
+    <div class="custom-select" name="location" style="width:200px;">
+      <select name = "location">
+        <option value="" selected>Select an option&hellip;</option>
+        <option value = "Toronto Eaton Centre">Toronto Eaton Centre</option>
+        <option value = "Centre Rockland">Centre Rockland</option>
+        <option value = "Lenox Square">Lenox Square</option>
+     </select>
+    </div>
     <p>Street:<input type="street" placeholder="Street" name="street" required/></p>
     <p>City:<input type="city" placeholder="City" name="city" required/></p>
     <p>Province:<input type="province" placeholder="Province" name="province" required/></p>
