@@ -3,9 +3,7 @@
   <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
-
     <%- include('partials/_search-bar') %>
-
     <% for(let posting of postings) {%>
       <% if (posting['available']) { %>
       <div class="posting-container">
@@ -54,9 +52,9 @@
           <% if (user && isAdmin) { %>
           <div class="posting-marksold-stock">
             <button class="mark-item-button" type="submit">Mark as Sold</button>
-            <i id="item-availability" class="far fa-check"></i>
+            <i id="item-availability" class="fas fa-check"></i>
           </div>
-          <button class="remove-item-button" type="submit">Remove Item From Store</button>
+          <button class="remove-item-button fas fa-trash-alt" type="submit"></button>
           <% } %>
         </div>
       </div>

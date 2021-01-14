@@ -17,22 +17,22 @@ module.exports = (db) => {
           ($1, $2, $3)
           RETURNING *
           ;`, [Number(receiver_id), Number(sender_id), Number(posting_id)])
-        .then(response => {
-          console.log("000000", response.rows)
-          console.log("000000", req.body)
-          let sender_id = req.session["userID"];
-          let newMessage = req.body["newMessage"];
-          let receiver_id = req.body["receiver_id"];
-          return db.query(`
+      .then(response => {
+        console.log("000000", response.rows);
+        console.log("000000", req.body);
+        let sender_id = req.session["userID"];
+        let newMessage = req.body["newMessage"];
+        let receiver_id = req.body["receiver_id"];
+        return db.query(`
           INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
           VALUES
           ($1, $2, $3, $4, Now())
-          ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]])
-        })
-        .then(res => {
-          res.redirect("/conversations")
-        })
-        .catch(e => res.send(e));
+          ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]]);
+      })
+      .then(res => {
+        res.redirect("/conversations");
+      })
+      .catch(e => res.send(e));
 
 
   });
