@@ -7,7 +7,6 @@ module.exports = (db) => {
         user: req.session["userName"],
         isAdmin: req.session["isAdmin"]
       };
-      console.log("THE TEMPLATE VARIABLES ARE >>>", templateVars);
       res.render("index", templateVars);
   });
   return router;
