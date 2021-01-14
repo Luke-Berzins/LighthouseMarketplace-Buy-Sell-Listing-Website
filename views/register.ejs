@@ -3,13 +3,14 @@
   <%- include('partials/_head') %>
     <body>
       <%- include('partials/_navbar') %>
-
+      <div class="register-container">
     <h2>Register</h2>
     <form method="POST" action="/register">
     <p>Name:<input type="name" placeholder="name" name="name" required/></p>
     <p>Email:<input type="email" placeholder="email" name="email" required/></p>
     <p>Password:<input type="password" placeholder="password" name="password" required/></p>
-    <button type="submit" class="btn btn-primary">Register!</button>
+    <button type="submit" id="register-submit" class="btn btn-primary">Register!</button>
     </form>
+    </div>
     </body>
 </html>

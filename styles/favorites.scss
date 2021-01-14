@@ -3,12 +3,13 @@
   align-items: center;
   width: 90%;
   height: 40%;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   border: thin solid black;
-  background-color: lightgray;
-
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color:#5e0000a9;
+  color: whitesmoke
 }
 
 .favorite-image {
