@@ -1,12 +1,22 @@
-#create-listing-container {
+.create-listing-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 1rem;
+  height: 75%;
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  padding-bottom: 1.5rem;
+  color: white;
+  background: black;
 }
 
 body.create {
   text-align: center;
-  background: url(https://i.thehoroscope.co/wp-content/uploads/2018/10/Tiger-Personality.jpg) no-repeat center center fixed;
+  background: url(/images/sneaker-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,13 +37,13 @@ body.create {
   color: whitesmoke;
 }
 
-.create input {
-  background-color: #d4a713;
-}
+// .create input {
+//   background-color: #d4a713;
+// }
 
-.create select {
-  background-color: #d4a713;
-}
+// .create select {
+//   background-color: #d4a713;
+// }
 
 #create-submit {
   display:inline-block;
