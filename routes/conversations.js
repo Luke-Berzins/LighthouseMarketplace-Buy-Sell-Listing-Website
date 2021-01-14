@@ -37,7 +37,6 @@ module.exports = (db) => {
 
 
     router.post("/", (req, res) => {
-      console.log("hellloooooo", req.body);
       let user_id = req.session["userID"];
       let content = req.body["message"];
       let conversation_id = req.body["conversation_id"];

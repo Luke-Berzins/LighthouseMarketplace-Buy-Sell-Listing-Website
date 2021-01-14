@@ -7,7 +7,6 @@ $(() => {
       url: "/postings",
       data: {postingId: $postingIdClicked}
     }).then((response) => {
-      console.log("HELLOOOO");
     });
   });
 });
