@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang ="en">
   <%- include('partials/_head') %>
-    <body>
+    <body class="create">
       <%- include('partials/_navbar') %>
       <form method="POST" action="/create">
     <h2>Create New Listing</h2>
@@ -13,7 +13,7 @@
     <p>Description:<input type="description" placeholder="Description" name="description" required/></p>
     <h3>Address:</h3>
     <p>Location Name:</p>
-    <div class="custom-select" name="location" style="width:200px;">
+    <div class="custom-select" name="location">
       <select name = "location">
         <option value="" selected>Select an option&hellip;</option>
         <option value = "Toronto Eaton Centre">Toronto Eaton Centre</option>
@@ -26,7 +26,7 @@
     <p>Province:<input type="province" placeholder="Province" name="province" required/></p>
     <p>Postal Code:<input type="post_code" placeholder="Postal Code" name="post_code" required/></p>
     <p>Country:<input type="country" placeholder="Country" name="country" required/></p>
-    <button type="submit" class="btn btn-primary btn-lg">List Item!</button>
+    <button id="create-submit" type="submit" class="btn btn-primary btn-lg">List Item!</button>
     </form>
     </body>
 </html>

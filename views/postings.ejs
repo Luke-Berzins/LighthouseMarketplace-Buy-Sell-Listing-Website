@@ -32,7 +32,10 @@
               <button class="dropbtn">Send Message</button>
               <div class="dropdown-content">
     <form method="POST" action="/newConversation">
-        <input placeholder="Send message" name="newMessage" required/>
+        <input class="newConversation"
+        placeholder="Send message" name="newMessage" required/>
+        <input type = "hidden" name="posting_id" value="<%= posting['id'] %>"></input>
+        <input type = "hidden" name="receiver_id" value="<%= posting['user_id'] %>"></input>
         <button type="submit" class="btn btn-primary">Sent!</button>
     </form>
               </div>
