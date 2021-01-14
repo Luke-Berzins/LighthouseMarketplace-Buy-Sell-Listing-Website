@@ -47,8 +47,9 @@ module.exports = (db) => {
           VALUES
           ($1, $2, $3, $4, Now())
           ;`, [user_id, Number(otherUser_id), content, Number(conversation_id)])
-        .then(res => {
+        .then(resp => {
           console.log("MSG SENT SUCCESSFULLY!!!!");
+          res.status(204).send();
         })
         .catch(e => res.send(e));
     });

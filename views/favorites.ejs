@@ -27,7 +27,19 @@
           </div>
 
           <div class="favorite-msg-fav-timestamp">
-            <i class="far fa-comment-dots"></i>
+            <div class="dropdown">
+              <button class="dropbtn">Send Message</button>
+              <div class="dropdown-content">
+                <form method="POST" action="/newConversation">
+                  <br>
+                  <input class="newConversation" placeholder="Send message" name="newMessage" required />
+                  <input type="hidden" name="posting_id" value="<%= favorite['id'] %>"></input>
+                  <input type="hidden" name="receiver_id" value="<%= favorite['user_id'] %>"></input>
+                  <br>
+                  <br>
+                  <button type="submit" class="btn btn-primary">Send!</button>
+                </form>
+              </div>
             <i class="far fa-heart"></i>
             <span>
               <% let date = JSON.stringify(favorite['date_created']); %>
