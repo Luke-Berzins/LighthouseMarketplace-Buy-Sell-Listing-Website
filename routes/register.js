@@ -10,7 +10,7 @@ module.exports = (db) => {
       };
       res.render("register", templateVars);
     } else {
-      res.redirect("/postings")
+      res.redirect("/postings");
     }
   });
 
@@ -18,21 +18,21 @@ module.exports = (db) => {
     let name = req.body.name;
     let email = req.body.email;
     let password = bcrypt.hashSync(req.body.password, 12);
-      return db.query(`
+    return db.query(`
       INSERT INTO users (name, email, password)
       VALUES($1, $2, $3)
       RETURNING *;
     `, [name, email, password])
-    .then(response => {
-      console.log("USER ADDED SUCCESSFULLY!!!!")
-      let userName = response.rows[0].name;
-      let userID = response.rows[0].id;
-      req.session["userName"] = userName;
-      req.session["userID"] = userID;
-      res.redirect("/postings");
-      return response.rows[0] ? response.rows[0] : null;
-    })
-    .catch(e => response.send(e));
+      .then(response => {
+        console.log("USER ADDED SUCCESSFULLY!!!!");
+        let userName = response.rows[0].name;
+        let userID = response.rows[0].id;
+        req.session["userName"] = userName;
+        req.session["userID"] = userID;
+        res.redirect("/postings");
+        return response.rows[0] ? response.rows[0] : null;
+      })
+      .catch(e => response.send(e));
   });
 
   return router;

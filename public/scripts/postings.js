@@ -8,7 +8,7 @@ $(() => {
       data: {postingId: $postingIdClicked}
     }).then((response) => {
       console.log("HELLOOOO");
-    });;
+    });
   });
 });
 
@@ -29,7 +29,7 @@ $(() => {
       }
     }).then((res) => {
       console.log("AJAX request completed.");
-    });;
+    });
   });
 });
 

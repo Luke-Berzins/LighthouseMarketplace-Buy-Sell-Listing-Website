@@ -23,7 +23,7 @@ module.exports = (db) => {
           isAdmin: req.session["isAdmin"],
           favorites: data.rows
         };
-        res.render('favorites', templateVars)
+        res.render('favorites', templateVars);
       })
       .catch(err => {
         res

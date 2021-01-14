@@ -23,17 +23,17 @@
 
 .posting-container {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   width: 90%;
   height: 40%;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  padding: 0.4rem;
   border: thin solid black;
+  border-radius: 6px;
   text-transform: capitalize;
   background-color: lightgray;
-
 }
 
 button.icons {
@@ -45,30 +45,47 @@ button.icons {
 
 .posting-image {
   height: auto;
-  width: 14rem;
-  padding: 0.4rem;
+  width: 20rem;
+  border-radius: 6px;
 }
 
 .posting-title-price-description {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+  padding: 0.4rem;
+  text-align: left;
+}
+
+.posting-title {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.posting-price {
+  font-size: larger;
 }
 
 .posting-right-hand-side-parent {
-  margin-left: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .posting-address-seller {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
 }
 
 .posting-msg-fav-timestamp {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .posting-marksold-stock > .fa-check {
@@ -81,14 +98,6 @@ button.icons {
 
 .posting-id {
   visibility: hidden;
-}
-
-/* Dropdown Button */
-.dropbtn {
-  padding: 4px;
-  font-size: 16px;
-  border: solid black;
-  cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
@@ -142,3 +151,19 @@ button.icons {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.mark-item-button, .remove-item-button, .dropbtn {
+  display:inline-block;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:400;
+  color:whitesmoke;
+  background-color:#d4a713;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  position:relative;
+  cursor: pointer;
+}

@@ -22,12 +22,12 @@ module.exports = (db) => {
     `, [userID])
       .then(data => {
         const templateVars = {
-        user: req.session["userName"],
-        isAdmin: req.session["isAdmin"],
-        userIdent: userID,
-        messages: data.rows
-      };
-        res.render('conversations', templateVars)
+          user: req.session["userName"],
+          isAdmin: req.session["isAdmin"],
+          userIdent: userID,
+          messages: data.rows
+        };
+        res.render('conversations', templateVars);
       })
       .catch(err => {
         res
@@ -36,22 +36,22 @@ module.exports = (db) => {
       });
 
 
-      router.post("/", (req, res) => {
-        console.log("hellloooooo", req.body)
-        let user_id = req.session["userID"];
-        let content = req.body["message"];
-        let conversation_id = req.body["conversation_id"];
-        let otherUser_id = req.body["otherUser_id"];
-          return db.query(`
+    router.post("/", (req, res) => {
+      console.log("hellloooooo", req.body);
+      let user_id = req.session["userID"];
+      let content = req.body["message"];
+      let conversation_id = req.body["conversation_id"];
+      let otherUser_id = req.body["otherUser_id"];
+      return db.query(`
           INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
           VALUES
           ($1, $2, $3, $4, Now())
           ;`, [user_id, Number(otherUser_id), content, Number(conversation_id)])
         .then(res => {
-          console.log("MSG SENT SUCCESSFULLY!!!!")
+          console.log("MSG SENT SUCCESSFULLY!!!!");
         })
         .catch(e => res.send(e));
-      });
+    });
   });
   return router;
 };

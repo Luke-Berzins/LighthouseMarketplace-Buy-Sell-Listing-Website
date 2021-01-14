@@ -20,16 +20,16 @@ module.exports = (db) => {
       queryParam = [`%${searchTerm}%`];
       queryString = `SELECT postings.* FROM postings
       WHERE LOWER(postings.title) LIKE LOWER($1)
-      OR LOWER(postings.description) LIKE LOWER($1);`
+      OR LOWER(postings.description) LIKE LOWER($1);`;
     } else if (priceFilter) {
       queryParam = [`${priceFilter}`];
       queryString = `SELECT postings.* FROM postings
-      WHERE postings.price <= $1;`
+      WHERE postings.price <= $1;`;
     } else {
       queryString = `
       SELECT postings.*, users.name FROM postings
       JOIN users ON postings.user_id = users.id;
-    `
+    `;
     }
     db.query(queryString, queryParam)
       .then(data => {
@@ -38,7 +38,7 @@ module.exports = (db) => {
           isAdmin: req.session["isAdmin"],
           postings: data.rows
         };
-        res.render('postings', templateVars)
+        res.render('postings', templateVars);
       })
       .catch(err => {
         res
@@ -54,16 +54,16 @@ module.exports = (db) => {
     INSERT INTO favorites (user_id, posting_id)
     VALUES
     ($1, $2)
-    ;` ;
+    ;`;
     const values = [user_id, posting_id];
-      return db.query(queryString, values)
+    return db.query(queryString, values)
       .then(result => {
-        res.send("Success!")
+        res.send("Success!");
       })
       .catch(err => {
         return console.log('query error:', err);
-      })
-    });
+      });
+  });
   return router;
 };
 

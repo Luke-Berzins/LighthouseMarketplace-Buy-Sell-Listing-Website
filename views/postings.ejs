@@ -3,65 +3,56 @@
   <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
-
     <%- include('partials/_search-bar') %>
-
     <% for(let posting of postings) {%>
       <% if (posting['available']) { %>
-      <div class="posting-container">
-        <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
-        <div class="posting-title-price-description">
-          <span><%= posting['title'] %></span>
-          <span>$<%= posting['price'] %></span>
-          <span><%= posting['description'] %></span>
-          <span class="posting-id"><%= posting['id'] %></span>
-        </div>
-        <div class="posting-right-hand-side-parent">
-          <div class="posting-address-seller">
-            <span><%= posting['name'] %></span>
-            <span>
-              <%= posting['location_name'] %>,
-              <%= posting['street'] %>,
-              <%= posting['city'] %>,
-              <%= posting['province'] %>,
-              <%= posting['post_code'] %>
-            </span>
+        <div class="posting-container">
+          <img class="posting-image" src="<%= posting['image_photo_url'] %>" alt="posting-pic">
+          <div class="posting-title-price-description">
+            <span class="posting-title"><%= posting['title'] %></span>
+            <span class="posting-price">$<%= posting['price'] %></span>
+            <span><%= posting['description'] %></span>
+            <span class="posting-id"><%= posting['id'] %></span>
           </div>
-          <div class="posting-msg-fav-timestamp">
-            <div class="dropdown">
-              <button class="dropbtn">Send Message</button>
-              <div class="dropdown-content">
-    <form method="POST" action="/newConversation">
-      <br>
-        <input class="newConversation"
-        placeholder="Send message" name="newMessage" required/>
-        <input type = "hidden" name="posting_id" value="<%= posting['id'] %>"></input>
-        <input type = "hidden" name="receiver_id" value="<%= posting['user_id'] %>"></input>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary">Send!</button>
-    </form>
+          <div class="posting-right-hand-side-parent">
+            <div class="posting-address-seller">
+              <span><%= posting['name'] %></span>
+              <span><%= posting['location_name'] %></span>
+              <span><%= posting['street'] %>, <%= posting['city'] %>, <%= posting['province'] %>, <%= posting['post_code'] %></span>
+            </div>
+            <div class="posting-msg-fav-timestamp">
+              <div class="dropdown">
+                <button class="dropbtn">Send Message</button>
+                <div class="dropdown-content">
+                  <form method="POST" action="/newConversation">
+                    <br>
+                    <input class="newConversation" placeholder="Send message" name="newMessage" required />
+                    <input type="hidden" name="posting_id" value="<%= posting['id'] %>"></input>
+                    <input type="hidden" name="receiver_id" value="<%= posting['user_id'] %>"></input>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Send!</button>
+                  </form>
+                </div>
               </div>
+
+              <button class="icons" type="submit"><i class="far fa-heart" onclick="toggleButton(this)"></i></button>
+              <span>
+                <% let date=JSON.stringify(posting['date_created']); %>
+                  <%= date.slice(1, 11) %>
+              </span>
             </div>
 
-            <button class="icons" type="submit"><i class="far fa-heart" onclick="toggleButton(this)"></i></button>
-            <span>
-              <% let date = JSON.stringify(posting['date_created']); %>
-              <%= date.slice(1, 11) %>
-            </span>
+            <% if (user && isAdmin) { %>
+              <div class="posting-marksold-stock">
+                <button class="mark-item-button" type="submit">Mark as Sold</button>
+                <i id="item-availability" class="fas fa-check"></i>
+              </div>
+              <button class="remove-item-button fas fa-trash-alt" type="submit"></button>
+              <% } %>
           </div>
-
-          <% if (user && isAdmin) { %>
-          <div class="posting-marksold-stock">
-            <button class="mark-item-button" type="submit">Mark as Sold</button>
-            <i id="item-availability" class="far fa-check"></i>
-          </div>
-          <button class="remove-item-button" type="submit">Remove Item From Store</button>
-          <% } %>
         </div>
-      </div>
-      <% } %>
-    <% } %>
-  </body>
+        <% } %>
+        <% } %>
+</body>
 </html>
-
