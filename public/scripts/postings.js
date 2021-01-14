@@ -2,10 +2,15 @@ $(() => {
   $(".fa-heart").on('click', function(e) {
     e.preventDefault();
     const $postingIdClicked = $(this).parents(".posting-container").find(".posting-id").text();
+    $(this).toggleClass("fas far");
+    let actionToDo = $(this).attr('class');
     $.ajax({
       method: "POST",
       url: "/postings",
-      data: {postingId: $postingIdClicked}
+      data: {
+        postingId: $postingIdClicked,
+        actionToDo: actionToDo
+      }
     }).then((response) => {
       console.log("HELLOOOO");
     });
@@ -36,10 +41,4 @@ $(() => {
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
-function toggleButton(x) {
-  x.classList.toggle("fas", "fa-heart");
-}
-
-
 
