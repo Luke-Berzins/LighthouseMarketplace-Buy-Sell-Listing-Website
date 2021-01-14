@@ -4,11 +4,12 @@
   <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
-    <h1 id="convPageTitle">Conversations!</h1>
+    <h1 id="convPageTitle">your conversations</h1>
 
       <% let currentConv = undefined;
           let otherUser = undefined;
           let otherUserName = ""
+          console.log(messages)
       for(let message of messages) { %>
          <% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv = message['conversation_id']; %>
@@ -23,6 +24,7 @@
          </div>
             <div class ="findMe">
               <div class="conversation_title">
+                <img class="posting-image" src="<%= message['image_photo_url'] %>" alt="posting-pic">
               <h1><%= message['title'] %> </h1>
               <h3 class="original_date"><% let date = JSON.stringify(message['time_sent']); %>
               <%= date.slice(1, 11) %> </h3>

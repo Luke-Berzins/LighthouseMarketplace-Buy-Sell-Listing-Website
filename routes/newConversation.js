@@ -18,8 +18,6 @@ module.exports = (db) => {
           RETURNING *
           ;`, [Number(receiver_id), Number(sender_id), Number(posting_id)])
         .then(response => {
-          console.log("000000", response.rows)
-          console.log("000000", req.body)
           let sender_id = req.session["userID"];
           let newMessage = req.body["newMessage"];
           let receiver_id = req.body["receiver_id"];
@@ -29,7 +27,7 @@ module.exports = (db) => {
           ($1, $2, $3, $4, Now())
           ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]])
         })
-        .then(res => {
+        .then(resp => {
           res.redirect("/conversations")
         })
         .catch(e => res.send(e));
