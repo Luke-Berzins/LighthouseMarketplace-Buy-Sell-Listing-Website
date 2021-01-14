@@ -27,12 +27,12 @@ module.exports = (db) => {
           INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
           VALUES
           ($1, $2, $3, $4, Now())
-          ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]]);
-      })
-      .then(res => {
-        res.redirect("/conversations");
-      })
-      .catch(e => res.send(e));
+          ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]])
+        })
+        .then(resp => {
+          res.redirect("/conversations")
+        })
+        .catch(e => res.send(e));
 
 
   });

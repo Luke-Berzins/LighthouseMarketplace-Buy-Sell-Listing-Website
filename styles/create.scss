@@ -11,10 +11,10 @@
   border-radius: 0.5rem;
   padding-bottom: 1.5rem;
   color: white;
-  background: black;
+  background: #5e0000a9;
 }
 
-body.create {
+body {
   text-align: center;
   background: url(/images/sneaker-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -26,6 +26,7 @@ body.create {
 .create h2 {
   color: whitesmoke;
   font-family: 'Gugi', cursive;
+  text-decoration: underline;
 }
 
 .create h3 {
@@ -55,7 +56,7 @@ body.create {
   font-family:'Roboto',sans-serif;
   font-weight:400;
   color:whitesmoke;
-  background-color:#af0c0c;
+  background-color:#d4a713;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   position:relative;
