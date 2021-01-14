@@ -42,17 +42,17 @@
    color: white;
  }
 
-.userSent {
-  padding-left: 4rem;
-  width: fit-content;
-}
+ .userSent {
+   padding-right: 4rem;
+   width: fit-content;
+   margin-left: auto;
+   margin-right: 4rem;
+  }
 
-.userRecieved {
-  padding-right: 4rem;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 4rem;
-}
+  .userRecieved {
+    padding-left: 4rem;
+    width: fit-content;
+  }
 
 .convoRes {
   color:white;
