@@ -30,7 +30,8 @@ module.exports = (db) => {
           ;`, [sender_id, Number(receiver_id), newMessage, response.rows[0]["id"]])
         })
         .then(resp => {
-          res.redirect("/conversations")
+          console.log("MSG SENT SUCCESSFULLY!!!!");
+          res.status(204).send();
         })
         .catch(e => res.send(e));
 

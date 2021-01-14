@@ -10,10 +10,6 @@ $(() => {
     <p> ${newMess} </p>
     <p style="color: white;"> Just sent </p>
     </div>`;
-
-
     $(this).parents(".findMe").append(newMessage);
-
-
   });
 });
