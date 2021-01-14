@@ -61,7 +61,7 @@ module.exports = (db) => {
         res.send("Success!");
       })
       .catch(err => {
-        return console.log('query error:', err);
+        console.log("THIS ITEM ALREADY EXISTS IN USER'S FAVORITES!");
       });
   });
   return router;
