@@ -50,18 +50,26 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     let user_id = req.session.userID;
     let posting_id = Number(req.body.postingId);
-    const queryString = `
-    INSERT INTO favorites (user_id, posting_id)
-    VALUES
-    ($1, $2)
-    ;`;
+    let actionToDo = req.body.actionToDo;
+    let queryString = "";
     const values = [user_id, posting_id];
+    if (actionToDo.includes("fas")) {
+      queryString = `
+      INSERT INTO favorites (user_id, posting_id)
+      VALUES ($1, $2)
+      ON CONFLICT DO NOTHING;`;
+    } else {
+      queryString = `
+      DELETE FROM favorites
+      WHERE user_id = $1 AND posting_id = $2;
+      `;
+    }
     return db.query(queryString, values)
       .then(result => {
         res.send("Success!");
       })
       .catch(err => {
-        return console.log('query error:', err);
+        console.log("Error in query");
       });
   });
   return router;
