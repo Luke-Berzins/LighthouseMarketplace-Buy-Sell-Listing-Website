@@ -3,3 +3,50 @@
   flex-direction: column;
   justify-content: center;
 }
+
+body.create {
+  text-align: center;
+  background: url(https://i.thehoroscope.co/wp-content/uploads/2018/10/Tiger-Personality.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
+}
+
+.create h2 {
+  color: whitesmoke;
+  font-family: 'Gugi', cursive;
+}
+
+.create h3 {
+  color: whitesmoke;
+  font-family: 'Gugi', cursive;
+}
+
+.create p {
+  color: whitesmoke;
+}
+
+.create input {
+  background-color: #d4a713;
+}
+
+.create select {
+  background-color: #d4a713;
+}
+
+#create-submit {
+  display:inline-block;
+  padding:0.7em 1.7em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:whitesmoke;
+  background-color:#af0c0c;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  position:relative;
+  }
