@@ -2,18 +2,21 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   text-transform: capitalize;
+  background: rgba(175,12,12,1);
+  color: white;
 }
 
-.lhl-marketplace-logo {
-  width: 30px;
+.sneek-logo {
+  width: 60px;
   height: auto;
   padding-right: 0.5rem;
 }
 
 .company-name {
-  font-family: 'Saira Stencil One', cursive;
+  font-family: 'Gugi', cursive;
+  color: rgb(255, 255, 255);
   font-size: x-large;
 }
 

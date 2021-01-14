@@ -19,7 +19,7 @@ module.exports = (db) => {
     let street = req.body.street;
     let city = req.body.city;
     let province = req.body.province;
-    let location_name = req.body.location_name;
+    let location_name = req.body.location;
     let post_code = req.body.post_code;
     let country = req.body.country;
     const queryString = `
