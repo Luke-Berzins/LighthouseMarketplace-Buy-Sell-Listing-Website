@@ -17,13 +17,6 @@ module.exports = (db) => {
           ($1, $2, $3)
           RETURNING *
           ;`, [Number(receiver_id), Number(sender_id), Number(posting_id)])
-<<<<<<< HEAD
-        .then(response => {
-          let sender_id = req.session["userID"];
-          let newMessage = req.body["newMessage"];
-          let receiver_id = req.body["receiver_id"];
-          return db.query(`
-=======
       .then(response => {
         console.log("000000", response.rows);
         console.log("000000", req.body);
@@ -31,7 +24,6 @@ module.exports = (db) => {
         let newMessage = req.body["newMessage"];
         let receiver_id = req.body["receiver_id"];
         return db.query(`
->>>>>>> bcc29ccb0fa0cb3ae1c532ffc14b4eb84d4c7efa
           INSERT INTO messages (sender_id, receiver_id, content, conversation_id, time_sent)
           VALUES
           ($1, $2, $3, $4, Now())
