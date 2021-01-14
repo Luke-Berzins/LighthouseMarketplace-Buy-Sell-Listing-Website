@@ -9,9 +9,20 @@
   display: none;
   padding: 1rem;
   border-radius: 25px;
-  background-color: #5A92C6;
+  background-color: #cc29009c;
 }
 
+
+#convPageTitle {
+  margin: 3rem;
+  font-family: 'Gugi', cursive;
+  color: rgb(0, 0, 0);
+  font-size: 5rem;
+}
+.conversation_title {
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
 
 
 .userSent {
@@ -27,7 +38,7 @@
 }
 
 .convoRes {
-  color: white;
+  color: rgb(46, 46, 46);
 }
 
 .userSentNew {

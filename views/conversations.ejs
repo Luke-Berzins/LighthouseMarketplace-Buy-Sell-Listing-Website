@@ -4,7 +4,7 @@
   <%- include('partials/_head') %>
   <body>
     <%- include('partials/_navbar') %>
-    <h1>Conversations!</h1>
+    <h1 id="convPageTitle">Conversations!</h1>
 
       <% let currentConv = undefined;
           let otherUser = undefined;
@@ -24,6 +24,8 @@
             <div class ="findMe">
               <div class="conversation_title">
               <h1><%= message['title'] %> </h1>
+              <h3 class="original_date"><% let date = JSON.stringify(message['time_sent']); %>
+              <%= date.slice(1, 11) %> </h3>
               <button class="fas fa-reply"></button>
               </div>
               <div class="conversations-container">
@@ -31,7 +33,7 @@
               <input class="newMessageBody" type="text" placeholder="Message" name="message">
               <input type = "hidden" name="conversation_id" value="<%= message['conversation_id'] %>"></input>
               <input type = "hidden" name="otherUser_id" value="<%= otherUser %>"></input>
-              <button class ="sendMessage"type="submit" class="fa fa-paper-plane"></button>
+              <button class ="sendMessage fa fa-paper-plane" type="submit"></button>
             </form>
               </div>
          <% } %>
