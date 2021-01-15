@@ -10,10 +10,16 @@
 .search-bar {
   margin-left: auto;
   flex-grow: 1;
+  border-radius: 0.5rem;
 }
 
 .fa-filter {
   margin-right: auto;
+  border-radius: 0.5rem;
+}
+
+.fa-search {
+  border-radius: 0.5rem;
 }
 
 #myInput {
@@ -42,6 +48,10 @@ button.icons {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+#myInput {
+  border-radius: 0.5rem;
 }
 
 .mark-item-button, .remove-item-button {
