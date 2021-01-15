@@ -6,38 +6,48 @@
   border: thin solid black;
   margin: auto;
   margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 25px;
-  background-color:#5e0000be;
+  padding: 0.4rem;
+  border: thin solid black;
+  border-radius: 6px;
+  text-transform: capitalize;
+  background: #5e0000cb;
   color: white
 }
 
 .favorite-image {
   height: auto;
-  width: 14rem;
-  padding: 0.4rem;
+  width: 20rem;
+  border-radius: 6px;
 }
 
 .favorite-title-price-description {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+  padding: 0.4rem;
+  text-align: left;
 }
 
 .favorite-right-hand-side-parent {
-  margin-left: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .favorite-address-seller {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
 }
 
 .favorite-msg-fav-timestamp {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 #favHeart {
