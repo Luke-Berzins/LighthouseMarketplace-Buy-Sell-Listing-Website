@@ -8,7 +8,7 @@
       <span> Hey there, <%= user %> </span>
       <div class="dropdown">
         <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
+        <div id="menu-dropdown" class="dropdown-content">
           <a href="/create">Create Listing</a>
           <a href="/">My Listings</a>
           <a href="/postings">Listings</a>
@@ -22,7 +22,7 @@
     <% } else if (user) { %>
       <span> Hey there, <%= user %> </span>
       <div class="dropdown">
-        <button class="dropbtn">Menu</button>
+        <button id="menu-dropdown" class="dropbtn">Menu</button>
         <div class="dropdown-content">
           <a href="/postings">Listings</a>
           <a href="/conversations">Messages</a>
