@@ -31,7 +31,6 @@ $(() => {
         postingId: $postingIdClicked
       }
     }).then((res) => {
-      console.log("AJAX request completed.");
     });
   });
 });
@@ -48,17 +47,18 @@ $(() => {
           postingId: $postingIdClicked
         }
       }).then((res) => {
-        console.log("AJAX request completed.");
       });
     });
   });
 
+
+ $(() => {
   $(".sentMessage").click(function() {
-    console.log("whatsup")
     $(this).addClass("alreadySent");
     $(this).siblings(".newConversation").addClass("alreadySent");
     $(this).siblings(".sentConfirm").removeClass("alreadySent");
   });
+});
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
