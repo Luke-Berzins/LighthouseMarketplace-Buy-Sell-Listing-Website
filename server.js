@@ -52,6 +52,7 @@ const conversationsRoutes = require("./routes/conversations");
 const favoritesRoutes = require("./routes/favorites");
 const messagesRoutes = require("./routes/messages");
 const createRoutes = require("./routes/create");
+const deleteItemRoutes = require("./routes/deleteItems");
 const poolFactory = require('pg/lib/pool-factory');
 
 // Mount all resource routes
@@ -71,6 +72,7 @@ app.use("/register", registerRoutes(db));
 app.use("/create", createRoutes(db));
 app.use("/markItems", markItemRoutes(db));
 app.use("/newConversation", newConversationRoutes(db));
+app.use("/deleteItems", deleteItemRoutes(db));
 
 app.listen(PORT, () => {
   console.log(`Lighthouse Marketplace listening on port ${PORT}`);
