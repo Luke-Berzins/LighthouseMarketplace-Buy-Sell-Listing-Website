@@ -3,30 +3,33 @@
   <%- include('partials/_head') %>
     <body class="create">
       <%- include('partials/_navbar') %>
-      <form method="POST" action="/create" class="create-listing-container">
-    <h2>Create Listing</h2>
-    <h3>Item Image:</h3>
-    <p>Photo:<input type="photo" placeholder="Image-URL" name="image" required/></p>
-      <h3>Item Info:</h3>
-    <p>Title:<input type="title" placeholder="Title" name="title" required/></p>
-    <p>Price:<input type="price" placeholder="Price" name="price" required/></p>
-    <p>Description:<input type="description" placeholder="Description" name="description" required/></p>
-    <h3>Location Name:</h3>
-    <div class="custom-select" name="location">
-      <select name = "location">
-        <option value="" disabled selected>Select an option&hellip;</option>
-        <option value = "Toronto Eaton Centre">Toronto Eaton Centre</option>
-        <option value = "Centre Rockland">Centre Rockland</option>
-        <option value = "Lenox Square">Lenox Square</option>
-     </select>
-    </div>
-    <h3>Location Address:</h3>
-    <p>Street:<input type="street" placeholder="Street" name="street" required/></p>
-    <p>City:<input type="city" placeholder="City" name="city" required/></p>
-    <p>Province:<input type="province" placeholder="Province" name="province" required/></p>
-    <p>Postal Code:<input type="post_code" placeholder="Postal Code" name="post_code" required/></p>
-    <p>Country:<input type="country" placeholder="Country" name="country" required/></p>
-    <button id="create-submit" type="submit" class="btn btn-primary btn-lg">List Item!</button>
-    </form>
+      <div class="create-listing-container">
+        <form method="POST" action="/create" class="create-listing">
+          <h2>Create Listing</h2>
+          <h3>Item Image:</h3>
+          <p>Photo:<input type="photo" placeholder="Image-URL" name="image" required/></p>
+            <h3>Item Info:</h3>
+          <p>Title:<input type="title" placeholder="Title" name="title" required/></p>
+          <p>Price:<input type="price" placeholder="Price" name="price" required/></p>
+          <p>Description:<input type="description" placeholder="Description" name="description" required/></p>
+          <h3>Store Location:</h3>
+          <div class="custom-select" name="location">
+            <select name = "location">
+              <option value="" disabled selected>Select an option&hellip;</option>
+              <option value = "Toronto Eaton Centre">Toronto Eaton Centre</option>
+              <option value = "Centre Rockland">Centre Rockland</option>
+              <option value = "Lenox Square">Lenox Square</option>
+           </select>
+          </div>
+          <h3>Store Address:</h3>
+          <p>Street:<input type="street" placeholder="Street" name="street" required/></p>
+          <p>City:<input type="city" placeholder="City" name="city" required/></p>
+          <p>Province:<input type="province" placeholder="Province" name="province" required/></p>
+          <p>Postal Code:<input type="post_code" placeholder="Postal Code" name="post_code" required/></p>
+          <p>Country:<input type="country" placeholder="Country" name="country" required/></p>
+          <button id="create-submit" type="submit" class="btn btn-primary btn-lg">List Item!</button>
+          </form>
+      </div>
+
     </body>
 </html>
