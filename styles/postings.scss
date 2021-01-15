@@ -10,10 +10,16 @@
 .search-bar {
   margin-left: auto;
   flex-grow: 1;
+  border-radius: 0.5rem;
 }
 
 .fa-filter {
   margin-right: auto;
+  border-radius: 0.5rem;
+}
+
+.fa-search {
+  border-radius: 0.5rem;
 }
 
 #myInput {
@@ -33,7 +39,7 @@
   border: thin solid black;
   border-radius: 6px;
   text-transform: capitalize;
-  background: #5e0000be;
+  background: #5e0000cb;
   color: white
 }
 
@@ -42,6 +48,10 @@ button.icons {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+#myInput {
+  border-radius: 0.5rem;
 }
 
 .mark-item-button, .remove-item-button {
@@ -127,7 +137,6 @@ button.icons {
 #myInput {
   flex-shrink: 2;
   box-sizing: border-box;
-  background-image: url('searchicon.png');
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
@@ -150,15 +159,16 @@ button.icons {
   display: none;
   right: 0;
   position: absolute;
-  background-color: #f6f6f6;
+  background-color: #5e0000;
   min-width: 230px;
-  border: 1px solid #ddd;
+  border: 1px solid#d4a713;
+  border-radius: 0.5rem;
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
