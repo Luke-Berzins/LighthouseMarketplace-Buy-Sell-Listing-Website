@@ -16,10 +16,12 @@
 .fa-filter {
   margin-right: auto;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .fa-search {
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .fa-heart {
@@ -29,6 +31,7 @@
 #myInput {
   display: flex;
   overflow: hidden;
+  border-radius: 0.5rem;
 }
 
 .posting-container {
@@ -52,10 +55,6 @@ button.icons {
   border: none;
   background: none;
   cursor: pointer;
-}
-
-#myInput {
-  border-radius: 0.5rem;
 }
 
 .mark-item-button, .remove-item-button {
@@ -207,4 +206,8 @@ button.icons {
 
 .sentConfirm{
   color: black;
+}
+
+.sentMessage {
+  cursor: pointer;
 }
