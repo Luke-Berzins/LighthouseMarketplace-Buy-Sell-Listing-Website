@@ -14,9 +14,9 @@
           <a href="/postings">Listings</a>
           <a href="/conversations">Messages</a>
           <a href="/favorites">My Favorites</a>
-            <form action="/logout" method="POST">
-              <a><button id="logout" type="submit">Logout</button></a>
-          </div>
+          <form action="/logout" method="POST">
+            <a><button type="submit">Logout</button></a>
+          </form>
         </div>
       </div>
     <% } else if (user) { %>
@@ -28,7 +28,7 @@
           <a href="/conversations">Messages</a>
           <a href="/favorites">My Favorites</a>
           <form action="/logout" method="POST">
-            <a><button id="logout" type="submit">Logout</button></a>
+            <a><button type="submit">Logout</button></a>
           </form>
         </div>
       </div>
@@ -38,4 +38,3 @@
     <% } %>
   </div>
 </nav>
-
