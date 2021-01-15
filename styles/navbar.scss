@@ -67,12 +67,6 @@ nav {
   cursor: pointer;
 }
 
-.dropdown-content {
-  display: flex;
-}
-
-@media screen and (max-width: 1024px) {
-
   /* Dropdown Button */
   .dropbtn {
     display:inline-block;
@@ -123,5 +117,3 @@ nav {
 
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #2B547A;}
-
-}

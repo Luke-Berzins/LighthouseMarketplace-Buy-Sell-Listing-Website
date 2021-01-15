@@ -47,6 +47,7 @@ const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
 const postingsRoutes = require("./routes/postings");
 const markItemRoutes = require("./routes/markItems");
+const deleteItemRoutes = require("./routes/deleteItems");
 const newConversationRoutes = require("./routes/newConversation");
 const conversationsRoutes = require("./routes/conversations");
 const favoritesRoutes = require("./routes/favorites");
@@ -70,6 +71,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/create", createRoutes(db));
 app.use("/markItems", markItemRoutes(db));
+app.use("/deleteItems", deleteItemRoutes(db));
 app.use("/newConversation", newConversationRoutes(db));
 
 app.listen(PORT, () => {
