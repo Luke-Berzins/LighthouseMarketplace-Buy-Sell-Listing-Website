@@ -24,7 +24,6 @@ module.exports = (db) => {
       RETURNING *;
     `, [name, email, password])
       .then(response => {
-        console.log("USER ADDED SUCCESSFULLY!!!!");
         let userName = response.rows[0].name;
         let userID = response.rows[0].id;
         req.session["userName"] = userName;

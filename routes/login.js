@@ -24,9 +24,7 @@ module.exports = (db) => {
     `, [email])
       .then(response => {
         if (response.rows[0]) {
-          console.log("RESPONSE IS >>>>>", response.rows[0]);
           if (bcrypt.compareSync(password, response.rows[0].password)) {
-            console.log("user match in database");
             let userName = response.rows[0].name;
             let userID = response.rows[0].id;
             let isAdmin = response.rows[0].is_admin;
@@ -35,7 +33,6 @@ module.exports = (db) => {
             req.session["isAdmin"] = isAdmin;
             res.redirect("/postings");
           } else {
-            console.log("user not matched in database");
             res.redirect("/login");
           }
         } else {
@@ -44,7 +41,6 @@ module.exports = (db) => {
         return response.rows[0] ? response.rows[0] : null;
       })
       .catch(e => {
-        console.log("Reached here");
         response.send(e);
       });
   });
