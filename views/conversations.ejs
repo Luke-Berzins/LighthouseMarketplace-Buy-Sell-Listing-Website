@@ -9,7 +9,6 @@
       <% let currentConv = undefined;
           let otherUser = undefined;
           let otherUserName = ""
-          console.log(messages)
       for(let message of messages) { %>
          <% if (message['conversation_id'] !== currentConv) {  %>
             <% currentConv = message['conversation_id']; %>

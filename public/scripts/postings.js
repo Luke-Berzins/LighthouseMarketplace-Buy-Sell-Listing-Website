@@ -31,7 +31,6 @@ $(() => {
         postingId: $postingIdClicked
       }
     }).then((res) => {
-      console.log("AJAX request completed.");
     });
   });
 });
@@ -48,12 +47,12 @@ $(() => {
           postingId: $postingIdClicked
         }
       }).then((res) => {
-        console.log("AJAX request completed.");
       });
     });
   });
 
-  $(() => {
+
+ $(() => {
   $(".sentMessage").click(function() {
     $(this).addClass("alreadySent");
     $(this).siblings(".newConversation").addClass("alreadySent");
